@@ -1,0 +1,85 @@
+site_name: EbreSafe - Projecte Intermodular
+site_description: Documentació del projecte intermodular EbreSafe
+site_author: Jordi Cervantes
+site_url: https://jordicerv.github.io/projecte_ebresafe/
+
+theme:
+  name: material
+  language: ca
+  palette:
+    - scheme: default
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Canvia a mode fosc
+    - scheme: slate
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Canvia a mode clar
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  icon:
+    repo: fontawesome/brands/github
+
+repo_url: https://github.com/jordicerv/projecte_ebresafe
+repo_name: jordicerv/projecte_ebresafe
+
+nav:
+  - Inici: index.md
+  - Presentació:
+    - Descripció del projecte: presentacio/descripcio.md
+    - Objectius: presentacio/objectius.md
+    - Equip: presentacio/equip.md
+  - Disseny:
+    - Arquitectura: disseny/arquitectura.md
+    - Base de dades: disseny/base_de_dades.md
+    - Interfície d'usuari: disseny/interficie.md
+  - Desenvolupament:
+    - Tecnologies: desenvolupament/tecnologies.md
+    - Backend: desenvolupament/backend.md
+    - Frontend: desenvolupament/frontend.md
+    - API: desenvolupament/api.md
+  - Desplegament:
+    - Configuració: desplegament/configuracio.md
+    - Instruccions: desplegament/instruccions.md
+  - Conclusions:
+    - Resultats: conclusions/resultats.md
+    - Millores futures: conclusions/millores.md
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+plugins:
+  - search:
+      lang: ca
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/jordicerv
