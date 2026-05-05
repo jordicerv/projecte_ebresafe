@@ -16,6 +16,12 @@
 |--------|--------|
 | :material-github: **Repositori del projecte** | [github.com/jordicerv/projecte_ebresafe](https://github.com/jordicerv/projecte_ebresafe) |
 
+## Gestió de tasques
+
+| Recurs | Enllaç |
+|--------|--------|
+| :material-trello: **KanbanFlow** | [https://kanbanflow.com/board/eHnakJ4](https://kanbanflow.com/board/eHnakJ4) |
+
 ## Recursos utilitzats
 
 | Recurs | Descripció |
