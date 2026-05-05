@@ -8,7 +8,7 @@
 | Recurs | Enllaç |
 |--------|--------|
 | :material-presentation-play: **Presentació Canva** | [https://canva.link/33z4cxcx4a0d4n1](https://canva.link/33z4cxcx4a0d4n1) |
-| :material-web: **MkDocs publicat (GitHub Pages)** | [https://mmaaarc.github.io/PROJECTE-INTERMODULAR/](https://mmaaarc.github.io/PROJECTE-INTERMODULAR/) |
+| :material-web: **Documentació GitHub Pages** | [https://jordicerv.github.io/projecte_ebresafe/](https://jordicerv.github.io/projecte_ebresafe/) |
 
 ## Repositoris
 

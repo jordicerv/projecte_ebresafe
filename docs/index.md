@@ -5,7 +5,7 @@ Benvingut/da a la documentació del **Projecte Intermodular EbreSafe**.
 !!! tip "Presentació del projecte"
     :material-presentation-play: **Presentació Canva:** [https://canva.link/33z4cxcx4a0d4n1](https://canva.link/33z4cxcx4a0d4n1)
 
-    :material-web: **Documentació publicada:** [https://mmaaarc.github.io/PROJECTE-INTERMODULAR/](https://mmaaarc.github.io/PROJECTE-INTERMODULAR/)
+    :material-web: **Documentació publicada:** [https://jordicerv.github.io/projecte_ebresafe/](https://jordicerv.github.io/projecte_ebresafe/)
 
 ---
 
@@ -79,5 +79,5 @@ graph TB
 | Recurs | Enllaç |
 |--------|--------|
 | :material-presentation-play: Presentació Canva | [canva.link/33z4cxcx4a0d4n1](https://canva.link/33z4cxcx4a0d4n1) |
-| :material-github: MkDocs publicat | [mmaaarc.github.io/PROJECTE-INTERMODULAR](https://mmaaarc.github.io/PROJECTE-INTERMODULAR/) |
+| :material-web: Documentació GitHub Pages | [jordicerv.github.io/projecte_ebresafe](https://jordicerv.github.io/projecte_ebresafe/) |
 | :material-github: Repositori GitHub | [github.com/jordicerv/projecte_ebresafe](https://github.com/jordicerv/projecte_ebresafe) |
