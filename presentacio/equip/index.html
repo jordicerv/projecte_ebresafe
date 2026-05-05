@@ -270,7 +270,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../laboratori/muntatge/" class="md-tabs__link">
+        <a href="../../laboratori/proxmox/" class="md-tabs__link">
           
   
   
@@ -668,6 +668,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#reparticio-per-arees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repartició per àrees
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -792,6 +803,34 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../laboratori/proxmox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entorn Proxmox
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1687,6 +1726,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#reparticio-per-arees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repartició per àrees
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1741,27 +1791,27 @@
 <tr>
 <th>Nom</th>
 <th>Inicials</th>
-<th>Rol</th>
+<th>Rol principal</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Jordi Cervera</td>
+<td><strong>Jordi Cervera</strong></td>
 <td>JCP</td>
-<td>Desenvolupament eina d'auditoria, Docker, Alta Disponibilitat</td>
+<td>Desenvolupament eina d'auditoria, Docker, Proxmox, documentació</td>
 </tr>
 <tr>
-<td>Marc Baiges</td>
+<td><strong>Joan Bertomeu</strong></td>
+<td>JO</td>
+<td>Alta Disponibilitat (HA), anàlisi de mercat, anàlisi de riscos</td>
+</tr>
+<tr>
+<td><strong>Marc Baiges</strong></td>
 <td>MA</td>
 <td>Documentació, markdown, enumeració SMB</td>
 </tr>
 <tr>
-<td>Joan Bertomeu</td>
-<td>JO</td>
-<td>Anàlisi de mercat, anàlisi de riscos, landing page</td>
-</tr>
-<tr>
-<td>Ilyass Khaleq</td>
+<td><strong>Ilyass Khaleq</strong></td>
 <td>IK</td>
 <td>Presentació, suport configuració</td>
 </tr>
@@ -1802,18 +1852,18 @@
 <td>27/10/2025</td>
 </tr>
 <tr>
-<td>Enumeració</td>
+<td>Enumeració (SMB)</td>
 <td>Marc Baiges (MA)</td>
 <td>27/10/2025</td>
 </tr>
 <tr>
-<td>Escaneig</td>
-<td>—</td>
+<td>Escaneig (nmap)</td>
+<td>Jordi Cervera (JCP)</td>
 <td>27/10/2025</td>
 </tr>
 <tr>
 <td>Auditoria SSH</td>
-<td>—</td>
+<td>Jordi Cervera (JCP)</td>
 <td>27/10/2025</td>
 </tr>
 <tr>
@@ -1847,7 +1897,7 @@
 <td>Jordi Cervera (JCP), Marc Baiges (MA)</td>
 </tr>
 <tr>
-<td>Documentació com s'ha preparat l'entorn de Proxmox</td>
+<td>Documentació entorn Proxmox</td>
 <td>Jordi Cervera (JCP)</td>
 </tr>
 </tbody>
@@ -1863,25 +1913,67 @@
 <tbody>
 <tr>
 <td>Configuració Servidor Primari (Instal·lació bàsica)</td>
-<td>—</td>
+<td>Jordi Cervera (JCP)</td>
 </tr>
 <tr>
 <td>Configuració Servidor Secundari (Instal·lació bàsica)</td>
-<td>—</td>
+<td>Jordi Cervera (JCP)</td>
 </tr>
 <tr>
 <td>Millora eina d'auditoria</td>
-<td>—</td>
+<td>Jordi Cervera (JCP)</td>
 </tr>
 </tbody>
 </table>
 <h3 id="resum-per-membre">Resum per membre<a class="headerlink" href="#resum-per-membre" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>pie title Distribució de tasques finalitzades
+<pre class="mermaid"><code>pie title Distribució de tasques (total)
+    "Jordi Cervera (JCP)" : 7
     "Joan Bertomeu (JO)" : 3
-    "Jordi Cervera (JCP)" : 2
-    "Marc Baiges (MA)" : 1
-    "Ilyass Khaleq (IK)" : 1
-    "Sense assignar" : 2</code></pre>
+    "Marc Baiges (MA)" : 2
+    "Ilyass Khaleq (IK)" : 1</code></pre>
+<h3 id="reparticio-per-arees">Repartició per àrees<a class="headerlink" href="#reparticio-per-arees" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Àrea del projecte</th>
+<th>Responsable principal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 12h-4v-2h4m0 6h-4v-2h4m6-6h-2.81a6 6 0 0 0-1.82-1.96L17 4.41 15.59 3l-2.17 2.17a6 6 0 0 0-2.83 0L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20z"/></svg></span> <strong>Eina d'auditoria</strong> (escaneig, SSH, SMB, OSINT)</td>
+<td>Jordi Cervera</td>
+</tr>
+<tr>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.81 10.25c-.06-.04-.56-.43-1.64-.43-.28 0-.56.03-.84.08-.21-1.4-1.38-2.11-1.43-2.14l-.29-.17-.18.27c-.24.36-.43.77-.51 1.19-.2.8-.08 1.56.33 2.21-.49.28-1.29.35-1.46.35H2.62c-.34 0-.62.28-.62.63 0 1.15.18 2.3.58 3.38.45 1.19 1.13 2.07 2 2.61.98.6 2.59.94 4.42.94.79 0 1.61-.07 2.42-.22 1.12-.2 2.2-.59 3.19-1.16A8.3 8.3 0 0 0 16.78 16c1.05-1.17 1.67-2.5 2.12-3.65h.19c1.14 0 1.85-.46 2.24-.85.26-.24.45-.53.59-.87l.08-.24zm-17.96.99h1.76c.08 0 .16-.07.16-.16V9.5c0-.08-.07-.16-.16-.16H3.85c-.09 0-.16.07-.16.16v1.58c.01.09.07.16.16.16m2.43 0h1.76c.08 0 .16-.07.16-.16V9.5c0-.08-.07-.16-.16-.16H6.28c-.09 0-.16.07-.16.16v1.58c.01.09.07.16.16.16m2.47 0h1.75c.1 0 .17-.07.17-.16V9.5c0-.08-.06-.16-.17-.16H8.75c-.08 0-.15.07-.15.16v1.58c0 .09.06.16.15.16m2.44 0h1.77c.08 0 .15-.07.15-.16V9.5c0-.08-.06-.16-.15-.16h-1.77c-.08 0-.15.07-.15.16v1.58c0 .09.07.16.15.16M6.28 9h1.76c.08 0 .16-.09.16-.18V7.25c0-.09-.07-.16-.16-.16H6.28c-.09 0-.16.06-.16.16v1.57c.01.09.07.18.16.18m2.47 0h1.75c.1 0 .17-.09.17-.18V7.25c0-.09-.06-.16-.17-.16H8.75c-.08 0-.15.06-.15.16v1.57c0 .09.06.18.15.18m2.44 0h1.77c.08 0 .15-.09.15-.18V7.25c0-.09-.07-.16-.15-.16h-1.77c-.08 0-.15.06-.15.16v1.57c0 .09.07.18.15.18m0-2.28h1.77c.08 0 .15-.07.15-.16V5c0-.1-.07-.17-.15-.17h-1.77c-.08 0-.15.06-.15.17v1.56c0 .08.07.16.15.16m2.46 4.52h1.76c.09 0 .16-.07.16-.16V9.5c0-.08-.07-.16-.16-.16h-1.76c-.08 0-.15.07-.15.16v1.58c0 .09.07.16.15.16"/></svg></span> <strong>Docker i USB</strong> (Dockerfile, exportació, distribució)</td>
+<td>Jordi Cervera</td>
+</tr>
+<tr>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 1h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1m0 8h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1m0 8h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1M9 5h1V3H9zm0 8h1v-2H9zm0 8h1v-2H9zM5 3v2h2V3zm0 8v2h2v-2zm0 8v2h2v-2z"/></svg></span> <strong>Proxmox</strong> (preparació entorn, VMs, xarxa)</td>
+<td>Jordi Cervera</td>
+</tr>
+<tr>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10 17-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9m-6-8L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5z"/></svg></span> <strong>Alta Disponibilitat</strong> (keepalived, failover, serveis HA)</td>
+<td>Joan Bertomeu</td>
+</tr>
+<tr>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 21H2V3h2v16h2v-9h4v9h2V6h4v13h2v-5h4z"/></svg></span> <strong>Anàlisi</strong> (mercat, riscos)</td>
+<td>Joan Bertomeu</td>
+</tr>
+<tr>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5zM6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m9 16v-2H6v2zm3-4v-2H6v2z"/></svg></span> <strong>Documentació</strong> (markdown, MkDocs)</td>
+<td>Jordi Cervera, Marc Baiges</td>
+</tr>
+<tr>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 15V5a2 2 0 0 1 2-2h6l2 2h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-6v2h1a1 1 0 0 1 1 1h7v2h-7a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1H2v-2h7a1 1 0 0 1 1-1h1v-2H5a2 2 0 0 1-2-2"/></svg></span> <strong>Enumeració SMB</strong></td>
+<td>Marc Baiges</td>
+</tr>
+<tr>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 3h8a2 2 0 0 1 2-2 2 2 0 0 1 2 2h8v2h-1v11h-5.75L17 22h-2l-1.75-6h-2.5L9 22H7l1.75-6H3V5H2zm3 2v9h14V5z"/></svg></span> <strong>Presentació visual</strong> (Canva)</td>
+<td>Ilyass Khaleq</td>
+</tr>
+</tbody>
+</table>
 <h2 id="metodologia-de-treball">Metodologia de treball<a class="headerlink" href="#metodologia-de-treball" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">Com hem treballat</p>
