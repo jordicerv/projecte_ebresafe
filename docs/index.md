@@ -2,6 +2,11 @@
 
 Benvingut/da a la documentació del **Projecte Intermodular EbreSafe**.
 
+!!! tip "Presentació del projecte"
+    :material-presentation-play: **Presentació Canva:** [https://canva.link/33z4cxcx4a0d4n1](https://canva.link/33z4cxcx4a0d4n1)
+
+    :material-web: **Documentació publicada:** [https://mmaaarc.github.io/PROJECTE-INTERMODULAR/](https://mmaaarc.github.io/PROJECTE-INTERMODULAR/)
+
 ---
 
 ## Què és EbreSafe?
