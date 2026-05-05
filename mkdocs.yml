@@ -1,5 +1,5 @@
 site_name: EbreSafe - Projecte Intermodular
-site_description: Documentació del projecte intermodular EbreSafe
+site_description: Documentació del projecte intermodular EbreSafe - Eina d'auditoria de seguretat de xarxa amb alta disponibilitat
 site_author: Jordi Cervantes
 site_url: https://jordicerv.github.io/projecte_ebresafe/
 
@@ -23,9 +23,11 @@ theme:
     - navigation.tabs
     - navigation.sections
     - navigation.top
+    - navigation.expand
     - search.suggest
     - search.highlight
     - content.code.copy
+    - content.code.annotate
   icon:
     repo: fontawesome/brands/github
 
@@ -38,21 +40,33 @@ nav:
     - Descripció del projecte: presentacio/descripcio.md
     - Objectius: presentacio/objectius.md
     - Equip: presentacio/equip.md
-  - Disseny:
-    - Arquitectura: disseny/arquitectura.md
-    - Base de dades: disseny/base_de_dades.md
-    - Interfície d'usuari: disseny/interficie.md
-  - Desenvolupament:
-    - Tecnologies: desenvolupament/tecnologies.md
-    - Backend: desenvolupament/backend.md
-    - Frontend: desenvolupament/frontend.md
-    - API: desenvolupament/api.md
-  - Desplegament:
-    - Configuració: desplegament/configuracio.md
-    - Instruccions: desplegament/instruccions.md
-  - Conclusions:
-    - Resultats: conclusions/resultats.md
-    - Millores futures: conclusions/millores.md
+    - Enllaços: presentacio/enllacos.md
+  - Laboratori:
+    - Muntatge del laboratori: laboratori/muntatge.md
+    - Servidor secundari: laboratori/servidor_secundari.md
+    - Serveis comuns: laboratori/serveis_comuns.md
+    - Vulnerabilitats: laboratori/vulnerabilitats.md
+    - Keepalived i failover: laboratori/keepalived.md
+    - Serveis extra: laboratori/serveis_extra.md
+    - Verificació: laboratori/verificacio.md
+  - Alta Disponibilitat:
+    - Visió general: ha/index.md
+    - SSH: ha/ssh.md
+    - HTTP: ha/http.md
+    - MariaDB: ha/mariadb.md
+    - DNS: ha/dns.md
+    - FTP: ha/ftp.md
+    - Samba: ha/samba.md
+    - Scripts de sincronització: ha/scripts.md
+    - Prova final: ha/prova_final.md
+  - Eina d'Auditoria:
+    - Descripció general: auditoria/descripcio.md
+    - Estructura i funcionalitats: auditoria/estructura.md
+    - Ús de l'eina: auditoria/us.md
+    - Telegram: auditoria/telegram.md
+    - Docker i USB: auditoria/docker.md
+    - Problemes i solucions: auditoria/problemes.md
+    - Captures de pantalla: auditoria/captures.md
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -68,16 +82,18 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - admonition
   - attr_list
   - md_in_html
   - tables
   - toc:
       permalink: true
+  - def_list
 
 plugins:
-  - search:
-      lang: ca
+  - search
 
 extra:
   social:

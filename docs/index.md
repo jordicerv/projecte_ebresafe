@@ -1,4 +1,4 @@
-# :shield: EbreSafe - Projecte Intermodular
+# :shield: EbreSafe — Projecte Intermodular
 
 Benvingut/da a la documentació del **Projecte Intermodular EbreSafe**.
 
@@ -7,7 +7,7 @@ Benvingut/da a la documentació del **Projecte Intermodular EbreSafe**.
 ## Què és EbreSafe?
 
 !!! info "Resum del projecte"
-    EbreSafe és el projecte intermodular desenvolupat com a part del cicle formatiu. Aquesta documentació recull tota la informació rellevant sobre el disseny, desenvolupament i desplegament de l'aplicació.
+    EbreSafe és una **eina multi-protocol d'auditoria de seguretat de xarxa** amb interfície GUI (tkinter) i mode CLI per a Docker. El projecte inclou el muntatge d'un **laboratori amb alta disponibilitat** sobre Proxmox per simular entorns reals d'auditoria.
 
 ## Continguts
 
@@ -17,45 +17,62 @@ Benvingut/da a la documentació del **Projecte Intermodular EbreSafe**.
 
     ---
 
-    Descripció general del projecte, objectius i equip de treball.
+    Descripció general, objectius, equip de treball i enllaços a la presentació.
 
     [:octicons-arrow-right-24: Veure presentació](presentacio/descripcio.md)
 
--   :material-pencil-ruler: **Disseny**
+-   :material-server-network: **Laboratori**
 
     ---
 
-    Arquitectura del sistema, base de dades i interfície d'usuari.
+    Muntatge del laboratori ASIX amb dos servidors Ubuntu, serveis vulnerables i alta disponibilitat bàsica.
 
-    [:octicons-arrow-right-24: Veure disseny](disseny/arquitectura.md)
+    [:octicons-arrow-right-24: Veure laboratori](laboratori/muntatge.md)
 
--   :material-code-braces: **Desenvolupament**
-
-    ---
-
-    Tecnologies utilitzades, backend, frontend i API.
-
-    [:octicons-arrow-right-24: Veure desenvolupament](desenvolupament/tecnologies.md)
-
--   :material-rocket-launch: **Desplegament**
+-   :material-shield-check: **Alta Disponibilitat**
 
     ---
 
-    Configuració i instruccions de desplegament.
+    Configuració d'alta disponibilitat per a SSH, HTTP, MariaDB, DNS, FTP i Samba amb keepalived.
 
-    [:octicons-arrow-right-24: Veure desplegament](desplegament/configuracio.md)
+    [:octicons-arrow-right-24: Veure HA](ha/index.md)
 
--   :material-chart-line: **Conclusions**
+-   :material-bug: **Eina d'Auditoria**
 
     ---
 
-    Resultats obtinguts i possibles millores futures.
+    Documentació de l'eina d'auditoria de xarxa: escaneig de ports, SSH, SMB, OSINT i Telegram.
 
-    [:octicons-arrow-right-24: Veure conclusions](conclusions/resultats.md)
+    [:octicons-arrow-right-24: Veure eina](auditoria/descripcio.md)
 
 </div>
 
 ---
 
-!!! tip "Com navegar"
-    Utilitza el menú superior per navegar entre les seccions principals o el menú lateral per accedir a les pàgines individuals.
+## Escenari del projecte
+
+```mermaid
+graph TB
+    subgraph Proxmox
+        subgraph srv-primari ["srv-primari (192.168.0.100)"]
+            A1[SSH] & A2[Apache] & A3[MariaDB] & A4[Keepalived]
+        end
+        subgraph srv-secundari ["srv-secundari (192.168.0.101)"]
+            B1[SSH] & B2[Apache] & B3[MariaDB] & B4[Keepalived]
+            B5[bind9] & B6[vsftpd] & B7[Samba]
+        end
+    end
+    VIP["VIP: 192.168.0.110"]
+    Client["Client / Eina d'Auditoria"]
+    Client -->|Escaneig| VIP
+    VIP -.->|MASTER| srv-primari
+    VIP -.->|BACKUP| srv-secundari
+```
+
+## Enllaços ràpids
+
+| Recurs | Enllaç |
+|--------|--------|
+| :material-presentation-play: Presentació Canva | [canva.link/33z4cxcx4a0d4n1](https://canva.link/33z4cxcx4a0d4n1) |
+| :material-github: MkDocs publicat | [mmaaarc.github.io/PROJECTE-INTERMODULAR](https://mmaaarc.github.io/PROJECTE-INTERMODULAR/) |
+| :material-github: Repositori GitHub | [github.com/jordicerv/projecte_ebresafe](https://github.com/jordicerv/projecte_ebresafe) |
