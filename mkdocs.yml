@@ -42,6 +42,7 @@ nav:
     - Equip: presentacio/equip.md
     - Enllaços: presentacio/enllacos.md
   - Laboratori:
+    - Entorn Proxmox: laboratori/proxmox.md
     - Muntatge del laboratori: laboratori/muntatge.md
     - Servidor secundari: laboratori/servidor_secundari.md
     - Serveis comuns: laboratori/serveis_comuns.md

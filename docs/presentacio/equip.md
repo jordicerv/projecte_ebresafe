@@ -2,12 +2,12 @@
 
 ## Membres de l'equip
 
-| Nom | Inicials | Rol |
-|-----|----------|-----|
-| Jordi Cervera | JCP | Desenvolupament eina d'auditoria, Docker, Alta Disponibilitat |
-| Marc Baiges | MA | Documentació, markdown, enumeració SMB |
-| Joan Bertomeu | JO | Anàlisi de mercat, anàlisi de riscos, landing page |
-| Ilyass Khaleq | IK | Presentació, suport configuració |
+| Nom | Inicials | Rol principal |
+|-----|----------|---------------|
+| **Jordi Cervera** | JCP | Desenvolupament eina d'auditoria, Docker, Proxmox, documentació |
+| **Joan Bertomeu** | JO | Alta Disponibilitat (HA), anàlisi de mercat, anàlisi de riscos |
+| **Marc Baiges** | MA | Documentació, markdown, enumeració SMB |
+| **Ilyass Khaleq** | IK | Presentació, suport configuració |
 
 ## Gestió de tasques — KanbanFlow
 
@@ -29,9 +29,9 @@
 | Anàlisi de mercat | Joan Bertomeu (JO) | 27/10/2025 |
 | Anàlisi de Riscos | Joan Bertomeu (JO) | 27/10/2025 |
 | Presentació (14/11/25) | Ilyass Khaleq (IK) | 27/10/2025 |
-| Enumeració | Marc Baiges (MA) | 27/10/2025 |
-| Escaneig | — | 27/10/2025 |
-| Auditoria SSH | — | 27/10/2025 |
+| Enumeració (SMB) | Marc Baiges (MA) | 27/10/2025 |
+| Escaneig (nmap) | Jordi Cervera (JCP) | 27/10/2025 |
+| Auditoria SSH | Jordi Cervera (JCP) | 27/10/2025 |
 | Formació complementària | Jordi Cervera (JCP) | 06/11/2025 |
 | Contracte simbòlic | Jordi Cervera (JCP) | 06/11/2025 |
 | Landing page | Joan Bertomeu (JO) | 15/12/2025 |
@@ -41,26 +41,38 @@
 | Tasca | Responsable |
 |-------|-------------|
 | Markdown (documentació MkDocs) | Jordi Cervera (JCP), Marc Baiges (MA) |
-| Documentació com s'ha preparat l'entorn de Proxmox | Jordi Cervera (JCP) |
+| Documentació entorn Proxmox | Jordi Cervera (JCP) |
 
 #### :material-clipboard-list: A fer
 
 | Tasca | Responsable |
 |-------|-------------|
-| Configuració Servidor Primari (Instal·lació bàsica) | — |
-| Configuració Servidor Secundari (Instal·lació bàsica) | — |
-| Millora eina d'auditoria | — |
+| Configuració Servidor Primari (Instal·lació bàsica) | Jordi Cervera (JCP) |
+| Configuració Servidor Secundari (Instal·lació bàsica) | Jordi Cervera (JCP) |
+| Millora eina d'auditoria | Jordi Cervera (JCP) |
 
 ### Resum per membre
 
 ```mermaid
-pie title Distribució de tasques finalitzades
+pie title Distribució de tasques (total)
+    "Jordi Cervera (JCP)" : 7
     "Joan Bertomeu (JO)" : 3
-    "Jordi Cervera (JCP)" : 2
-    "Marc Baiges (MA)" : 1
+    "Marc Baiges (MA)" : 2
     "Ilyass Khaleq (IK)" : 1
-    "Sense assignar" : 2
 ```
+
+### Repartició per àrees
+
+| Àrea del projecte | Responsable principal |
+|--------------------|----------------------|
+| :material-bug: **Eina d'auditoria** (escaneig, SSH, SMB, OSINT) | Jordi Cervera |
+| :material-docker: **Docker i USB** (Dockerfile, exportació, distribució) | Jordi Cervera |
+| :material-server: **Proxmox** (preparació entorn, VMs, xarxa) | Jordi Cervera |
+| :material-shield-check: **Alta Disponibilitat** (keepalived, failover, serveis HA) | Joan Bertomeu |
+| :material-chart-bar: **Anàlisi** (mercat, riscos) | Joan Bertomeu |
+| :material-file-document: **Documentació** (markdown, MkDocs) | Jordi Cervera, Marc Baiges |
+| :material-folder-network: **Enumeració SMB** | Marc Baiges |
+| :material-presentation: **Presentació visual** (Canva) | Ilyass Khaleq |
 
 ## Metodologia de treball
 
