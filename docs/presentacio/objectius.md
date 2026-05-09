@@ -2,8 +2,7 @@
 
 ## Objectiu principal
 
-!!! success "Objectiu"
-    Desenvolupar una eina d'auditoria de seguretat de xarxa portable i completa, amb un laboratori d'alta disponibilitat per demostrar-ne les capacitats.
+Desenvolupar una eina d'auditoria de seguretat de xarxa portable i completa, amb un laboratori d'alta disponibilitat per demostrar-ne les capacitats.
 
 ## Objectius específics
 

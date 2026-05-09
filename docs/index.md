@@ -2,10 +2,6 @@
 
 Documentació del **Projecte Intermodular EbreSafe**.
 
-:material-presentation-play: **Presentació Canva:** [canva.link/33z4cxcx4a0d4n1](https://canva.link/33z4cxcx4a0d4n1)
-
-:material-web: **Documentació publicada:** [jordicerv.github.io/projecte_ebresafe](https://jordicerv.github.io/projecte_ebresafe/)
-
 ---
 
 ## Què és EbreSafe?
@@ -30,7 +26,7 @@ EbreSafe és una **eina multi-protocol d'auditoria de seguretat de xarxa** amb i
 
     Muntatge del laboratori amb dos servidors Ubuntu, serveis vulnerables i alta disponibilitat.
 
-    [:octicons-arrow-right-24: Veure laboratori](laboratori/muntatge.md)
+    [:octicons-arrow-right-24: Veure laboratori](laboratori/proxmox.md)
 
 -   :material-shield-check: **Alta Disponibilitat**
 
@@ -77,6 +73,7 @@ graph TB
 | Recurs | Enllaç |
 |--------|--------|
 | :material-presentation-play: Presentació Canva | [canva.link/33z4cxcx4a0d4n1](https://canva.link/33z4cxcx4a0d4n1) |
-| :material-web: Documentació GitHub Pages | [jordicerv.github.io/projecte_ebresafe](https://jordicerv.github.io/projecte_ebresafe/) |
+| :material-web: Documentació Jordi | [jordicerv.github.io/projecte_ebresafe](https://jordicerv.github.io/projecte_ebresafe/) |
+| :material-web: Documentació Marc | [mmaaarc.github.io/PROJECTE-INTERMODULAR](https://mmaaarc.github.io/PROJECTE-INTERMODULAR/) |
 | :material-github: Repositori GitHub | [github.com/jordicerv/projecte_ebresafe](https://github.com/jordicerv/projecte_ebresafe) |
 | :material-trello: KanbanFlow | [kanbanflow.com/board/eHnakJ4](https://kanbanflow.com/board/eHnakJ4) |
