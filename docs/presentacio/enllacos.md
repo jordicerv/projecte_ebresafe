@@ -5,13 +5,13 @@
 | Recurs | Enllaç |
 |--------|--------|
 | :material-presentation-play: **Presentació Canva** | [canva.link/33z4cxcx4a0d4n1](https://canva.link/33z4cxcx4a0d4n1) |
-| :material-web: **Documentació Jordi** | [jordicerv.github.io/projecte_ebresafe](https://jordicerv.github.io/projecte_ebresafe/) |
+| :material-web: **Documentació GitHub Pages** | [jordicerv.github.io/projecte_ebresafe](https://jordicerv.github.io/projecte_ebresafe/) |
 
 ## Repositoris
 
 | Recurs | Enllaç |
 |--------|--------|
-| :material-github: **Repositori Jordi** | [github.com/jordicerv/projecte_ebresafe](https://github.com/jordicerv/projecte_ebresafe) |
+| :material-github: **Repositori del projecte** | [github.com/jordicerv/projecte_ebresafe](https://github.com/jordicerv/projecte_ebresafe) |
 
 ## Gestió de tasques
 
