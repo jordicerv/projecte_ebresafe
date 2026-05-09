@@ -74,6 +74,5 @@ graph TB
 |--------|--------|
 | :material-presentation-play: Presentació Canva | [canva.link/33z4cxcx4a0d4n1](https://canva.link/33z4cxcx4a0d4n1) |
 | :material-web: Documentació Jordi | [jordicerv.github.io/projecte_ebresafe](https://jordicerv.github.io/projecte_ebresafe/) |
-| :material-web: Documentació Marc | [mmaaarc.github.io/PROJECTE-INTERMODULAR](https://mmaaarc.github.io/PROJECTE-INTERMODULAR/) |
 | :material-github: Repositori GitHub | [github.com/jordicerv/projecte_ebresafe](https://github.com/jordicerv/projecte_ebresafe) |
 | :material-trello: KanbanFlow | [kanbanflow.com/board/eHnakJ4](https://kanbanflow.com/board/eHnakJ4) |

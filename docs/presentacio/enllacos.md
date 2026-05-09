@@ -6,14 +6,12 @@
 |--------|--------|
 | :material-presentation-play: **Presentació Canva** | [canva.link/33z4cxcx4a0d4n1](https://canva.link/33z4cxcx4a0d4n1) |
 | :material-web: **Documentació Jordi** | [jordicerv.github.io/projecte_ebresafe](https://jordicerv.github.io/projecte_ebresafe/) |
-| :material-web: **Documentació Marc** | [mmaaarc.github.io/PROJECTE-INTERMODULAR](https://mmaaarc.github.io/PROJECTE-INTERMODULAR/) |
 
 ## Repositoris
 
 | Recurs | Enllaç |
 |--------|--------|
 | :material-github: **Repositori Jordi** | [github.com/jordicerv/projecte_ebresafe](https://github.com/jordicerv/projecte_ebresafe) |
-| :material-github: **Repositori Marc** | [github.com/mmaaarc/PROJECTE-INTERMODULAR](https://github.com/mmaaarc/PROJECTE-INTERMODULAR) |
 
 ## Gestió de tasques
 
