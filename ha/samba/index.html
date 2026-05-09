@@ -1629,20 +1629,13 @@
 
 
 <h1 id="ha-de-samba">HA de Samba<a class="headerlink" href="#ha-de-samba" title="Permanent link">&para;</a></h1>
-<p>Samba també es configura en <strong>actiu-passiu</strong>:</p>
-<ul>
-<li>Mateix share</li>
-<li>Mateix camí</li>
-<li>Mateixa configuració</li>
-<li>Dades sincronitzades</li>
-<li>Accés per la <code>VIP</code></li>
-</ul>
+<p>Samba en mode <strong>actiu-passiu</strong>: mateix share, configuració i dades sincronitzades, amb accés per la VIP.</p>
 <h2 id="1-comprovar-servei">1. Comprovar servei<a class="headerlink" href="#1-comprovar-servei" title="Permanent link">&para;</a></h2>
 <p>Als dos servidors:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>smbd
 </code></pre></div>
 <h2 id="2-sincronitzar-directori-del-share">2. Sincronitzar directori del share<a class="headerlink" href="#2-sincronitzar-directori-del-share" title="Permanent link">&para;</a></h2>
-<p>Al <code>srv-primari</code>, si el share és <code>/srv/samba/public</code>:</p>
+<p>Al <code>srv-primari</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>rsync<span class="w"> </span>-av<span class="w"> </span>/srv/samba/public/<span class="w"> </span>alumne@192.168.0.101:/srv/samba/public/
 </code></pre></div>
 <p><img alt="Sincronització Samba" src="../../assets/img/lab/image-32.png" /></p>
@@ -1655,7 +1648,6 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>smbd<span class="w"> </span>nmbd
 </code></pre></div>
 <h2 id="5-provar-per-la-vip">5. Provar per la VIP<a class="headerlink" href="#5-provar-per-la-vip" title="Permanent link">&para;</a></h2>
-<p>Des del PC:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>smbclient<span class="w"> </span>-N<span class="w"> </span>//192.168.0.110/public<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;ls&quot;</span>
 </code></pre></div>
 <p><img alt="Prova Samba" src="../../assets/img/lab/image-34.png" /></p>

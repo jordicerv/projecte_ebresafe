@@ -976,10 +976,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#punt-de-partida" class="md-nav__link">
+  <a href="#escenari" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Punt de partida
+        Escenari
       
     </span>
   </a>
@@ -987,10 +987,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#com-llegir-aquesta-seccio" class="md-nav__link">
+  <a href="#concepte-clau" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Com llegir aquesta secció
+        Concepte clau
       
     </span>
   </a>
@@ -998,54 +998,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#idea-important" class="md-nav__link">
+  <a href="#estrategia-dha-per-servei" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Idea important
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#estrategia-dalta-disponibilitat" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Estratègia d'alta disponibilitat
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resum-tecnic" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Resum tècnic
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fase-1-revisar-keepalived" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fase 1. Revisar keepalived
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#que-presentar-a-classe" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Què presentar a classe
+        Estratègia d'HA per servei
       
     </span>
   </a>
@@ -1576,10 +1532,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#punt-de-partida" class="md-nav__link">
+  <a href="#escenari" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Punt de partida
+        Escenari
       
     </span>
   </a>
@@ -1587,10 +1543,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#com-llegir-aquesta-seccio" class="md-nav__link">
+  <a href="#concepte-clau" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Com llegir aquesta secció
+        Concepte clau
       
     </span>
   </a>
@@ -1598,54 +1554,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#idea-important" class="md-nav__link">
+  <a href="#estrategia-dha-per-servei" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Idea important
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#estrategia-dalta-disponibilitat" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Estratègia d'alta disponibilitat
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resum-tecnic" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Resum tècnic
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fase-1-revisar-keepalived" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fase 1. Revisar keepalived
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#que-presentar-a-classe" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Què presentar a classe
+        Estratègia d'HA per servei
       
     </span>
   </a>
@@ -1673,60 +1585,38 @@
 
 
 <h1 id="alta-disponibilitat-dels-serveis">Alta Disponibilitat dels Serveis<a class="headerlink" href="#alta-disponibilitat-dels-serveis" title="Permanent link">&para;</a></h1>
-<h2 id="punt-de-partida">Punt de partida<a class="headerlink" href="#punt-de-partida" title="Permanent link">&para;</a></h2>
-<div class="admonition info">
-<p class="admonition-title">Escenari</p>
-<ul>
-<li><code>srv-primari</code>: <code>192.168.0.100</code></li>
-<li><code>srv-secundari</code>: <code>192.168.0.101</code></li>
-<li><code>VIP</code>: <code>192.168.0.110</code></li>
-</ul>
-<p>Ja tenim: <code>keepalived</code> funcionant, <code>SSH</code>, <code>Apache</code>, <code>MariaDB</code>, <code>bind9</code>, <code>vsftpd</code> i <code>Samba</code> instal·lats.</p>
-</div>
-<h2 id="com-llegir-aquesta-seccio">Com llegir aquesta secció<a class="headerlink" href="#com-llegir-aquesta-seccio" title="Permanent link">&para;</a></h2>
+<h2 id="escenari">Escenari<a class="headerlink" href="#escenari" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Expressió</th>
-<th>Significat</th>
+<th>Node</th>
+<th>IP</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Al srv-primari</strong></td>
-<td>Executar-ho a <code>192.168.0.100</code></td>
+<td><code>srv-primari</code></td>
+<td><code>192.168.0.100</code></td>
 </tr>
 <tr>
-<td><strong>Al srv-secundari</strong></td>
-<td>Executar-ho a <code>192.168.0.101</code></td>
+<td><code>srv-secundari</code></td>
+<td><code>192.168.0.101</code></td>
 </tr>
 <tr>
-<td><strong>Als dos servidors</strong></td>
-<td>Fer-ho als dos</td>
-</tr>
-<tr>
-<td><strong>Des del teu PC</strong></td>
-<td>Des de la màquina client, no dins de les VMs</td>
+<td><strong>VIP</strong></td>
+<td><code>192.168.0.110</code></td>
 </tr>
 </tbody>
 </table>
-<h2 id="idea-important">Idea important<a class="headerlink" href="#idea-important" title="Permanent link">&para;</a></h2>
-<div class="admonition tip">
-<p class="admonition-title">keepalived no és un servei d'Apache</p>
-<p><code>keepalived</code> gestiona una <strong>IP virtual</strong>. Per tant:</p>
+<p>Serveis instal·lats: <code>keepalived</code>, <code>SSH</code>, <code>Apache</code>, <code>MariaDB</code>, <code>bind9</code>, <code>vsftpd</code> i <code>Samba</code>.</p>
+<h2 id="concepte-clau">Concepte clau<a class="headerlink" href="#concepte-clau" title="Permanent link">&para;</a></h2>
+<p><code>keepalived</code> gestiona una <strong>IP virtual (VIP)</strong>. Quan la VIP passa al secundari, tots els serveis que escolten en aquesta IP continuen disponibles automàticament.</p>
 <ul>
-<li>Si la <code>VIP</code> és <code>192.168.0.110</code></li>
-<li>I els serveis escolten en aquella IP</li>
-<li>Quan la <code>VIP</code> passa al secundari, els serveis poden continuar disponibles</li>
+<li><code>HTTP</code>, <code>SSH</code>, <code>FTP</code> i <code>Samba</code> aprofiten directament la VIP</li>
+<li><code>MariaDB</code> requereix, a més, <strong>replicació de dades</strong></li>
+<li><code>DNS</code> funciona amb esquema <strong>master/slave</strong></li>
 </ul>
-<p>Això vol dir:</p>
-<ul>
-<li><code>HTTP</code>, <code>SSH</code>, <code>FTP</code> i <code>Samba</code> poden aprofitar directament la mateixa <code>VIP</code></li>
-<li><code>MariaDB</code> necessita, a més, <strong>replicació de dades</strong></li>
-<li><code>DNS</code> es defensa millor com a <strong>master/slave</strong></li>
-</ul>
-</div>
-<h2 id="estrategia-dalta-disponibilitat">Estratègia d'alta disponibilitat<a class="headerlink" href="#estrategia-dalta-disponibilitat" title="Permanent link">&para;</a></h2>
+<h2 id="estrategia-dha-per-servei">Estratègia d'HA per servei<a class="headerlink" href="#estrategia-dha-per-servei" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>graph TB
     K[keepalived] --&gt;|gestiona| VIP["VIP 192.168.0.110"]
     VIP --&gt; SSH
@@ -1739,7 +1629,6 @@
     MariaDB --&gt;|necessita| REP[Replicació master-slave]
     DNS --&gt;|millor amb| MS[Master / Slave]
     SSH &amp; HTTP &amp; FTP &amp; Samba --&gt;|només cal| SYNC[Sincronització rsync]</code></pre>
-<h2 id="resum-tecnic">Resum tècnic<a class="headerlink" href="#resum-tecnic" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -1757,7 +1646,7 @@
 <tr>
 <td>HTTP</td>
 <td>VIP + contingut sincronitzat</td>
-<td>Ja configurat amb keepalived</td>
+<td>Configurat amb keepalived</td>
 </tr>
 <tr>
 <td>MariaDB</td>
@@ -1781,26 +1670,6 @@
 </tr>
 </tbody>
 </table>
-<h2 id="fase-1-revisar-keepalived">Fase 1. Revisar keepalived<a class="headerlink" href="#fase-1-revisar-keepalived" title="Permanent link">&para;</a></h2>
-<p>Com que ja està configurat, només cal verificar:</p>
-<p>Als dos servidors:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ip<span class="w"> </span>a
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>systemctl<span class="w"> </span>status<span class="w"> </span>keepalived
-</code></pre></div>
-<p><strong>Prova de failover:</strong></p>
-<p>Al primari:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>keepalived
-</code></pre></div>
-<p>Al secundari:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ip<span class="w"> </span>a
-</code></pre></div>
-<p>La <code>VIP</code> ha d'aparèixer al secundari. Després torna'l a posar:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>keepalived
-</code></pre></div>
-<h2 id="que-presentar-a-classe">Què presentar a classe<a class="headerlink" href="#que-presentar-a-classe" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>Hem aprofitat una IP virtual gestionada per keepalived perquè diversos serveis continuïn disponibles després d'un failover. A més, per als serveis amb estat o dades, hem afegit sincronització o replicació entre nodes.</p>
-</blockquote>
 
 
 

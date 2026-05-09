@@ -1172,10 +1172,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-script-web" class="md-nav__link">
+  <a href="#script-web" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Script web
+        Script web
       
     </span>
   </a>
@@ -1183,10 +1183,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-script-ftp" class="md-nav__link">
+  <a href="#script-ftp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Script FTP
+        Script FTP
       
     </span>
   </a>
@@ -1194,10 +1194,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-script-samba" class="md-nav__link">
+  <a href="#script-samba" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Script Samba
+        Script Samba
       
     </span>
   </a>
@@ -1205,10 +1205,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#donar-permisos" class="md-nav__link">
+  <a href="#permisos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Donar permisos
+        Permisos
       
     </span>
   </a>
@@ -1216,10 +1216,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#us" class="md-nav__link">
+  <a href="#automatitzacio-amb-crontab" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ús
+        Automatització amb crontab
       
     </span>
   </a>
@@ -1554,10 +1554,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-script-web" class="md-nav__link">
+  <a href="#script-web" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Script web
+        Script web
       
     </span>
   </a>
@@ -1565,10 +1565,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-script-ftp" class="md-nav__link">
+  <a href="#script-ftp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Script FTP
+        Script FTP
       
     </span>
   </a>
@@ -1576,10 +1576,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-script-samba" class="md-nav__link">
+  <a href="#script-samba" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Script Samba
+        Script Samba
       
     </span>
   </a>
@@ -1587,10 +1587,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#donar-permisos" class="md-nav__link">
+  <a href="#permisos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Donar permisos
+        Permisos
       
     </span>
   </a>
@@ -1598,10 +1598,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#us" class="md-nav__link">
+  <a href="#automatitzacio-amb-crontab" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ús
+        Automatització amb crontab
       
     </span>
   </a>
@@ -1629,52 +1629,38 @@
 
 
 <h1 id="scripts-de-sincronitzacio">Scripts de Sincronització<a class="headerlink" href="#scripts-de-sincronitzacio" title="Permanent link">&para;</a></h1>
-<p>Per donar sensació de muntatge seriós, es deixen scripts simples al primari.</p>
-<h2 id="1-script-web">1. Script web<a class="headerlink" href="#1-script-web" title="Permanent link">&para;</a></h2>
-<p>Al <code>srv-primari</code>:</p>
+<p>Scripts al <code>srv-primari</code> per sincronitzar contingut amb el secundari via <code>rsync</code>.</p>
+<h2 id="script-web">Script web<a class="headerlink" href="#script-web" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/usr/local/bin/sync-web.sh
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="ch">#!/bin/bash</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>rsync<span class="w"> </span>-av<span class="w"> </span>/var/www/html/<span class="w"> </span>root@192.168.0.101:/var/www/html/
 </code></pre></div>
-<h2 id="2-script-ftp">2. Script FTP<a class="headerlink" href="#2-script-ftp" title="Permanent link">&para;</a></h2>
+<h2 id="script-ftp">Script FTP<a class="headerlink" href="#script-ftp" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/usr/local/bin/sync-ftp.sh
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="ch">#!/bin/bash</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>rsync<span class="w"> </span>-av<span class="w"> </span>/srv/ftp/compartit/<span class="w"> </span>root@192.168.0.101:/srv/ftp/compartit/
 </code></pre></div>
-<h2 id="3-script-samba">3. Script Samba<a class="headerlink" href="#3-script-samba" title="Permanent link">&para;</a></h2>
+<h2 id="script-samba">Script Samba<a class="headerlink" href="#script-samba" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/usr/local/bin/sync-samba.sh
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="ch">#!/bin/bash</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>rsync<span class="w"> </span>-av<span class="w"> </span>/srv/samba/public/<span class="w"> </span>root@192.168.0.101:/srv/samba/public/
 </code></pre></div>
-<h2 id="donar-permisos">Donar permisos<a class="headerlink" href="#donar-permisos" title="Permanent link">&para;</a></h2>
-<p>Al <code>srv-primari</code>:</p>
+<h2 id="permisos">Permisos<a class="headerlink" href="#permisos" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>/usr/local/bin/sync-web.sh
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>sudo<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>/usr/local/bin/sync-ftp.sh
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>sudo<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>/usr/local/bin/sync-samba.sh
 </code></pre></div>
-<h2 id="us">Ús<a class="headerlink" href="#us" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Sincronitzar web</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>sudo<span class="w"> </span>/usr/local/bin/sync-web.sh
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># Sincronitzar FTP</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>sudo<span class="w"> </span>/usr/local/bin/sync-ftp.sh
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># Sincronitzar Samba</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>sudo<span class="w"> </span>/usr/local/bin/sync-samba.sh
+<h2 id="automatitzacio-amb-crontab">Automatització amb crontab<a class="headerlink" href="#automatitzacio-amb-crontab" title="Permanent link">&para;</a></h2>
+<p>Els scripts es poden programar per executar-se periòdicament:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>crontab<span class="w"> </span>-e
 </code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Automatització</p>
-<p>Es podrien afegir a un <code>crontab</code> per executar-se periòdicament:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>crontab<span class="w"> </span>-e
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>*/5 * * * * /usr/local/bin/sync-web.sh
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>*/5 * * * * /usr/local/bin/sync-ftp.sh
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>*/5 * * * * /usr/local/bin/sync-samba.sh
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>*/5 * * * * /usr/local/bin/sync-web.sh
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>*/5 * * * * /usr/local/bin/sync-ftp.sh
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>*/5 * * * * /usr/local/bin/sync-samba.sh
-</code></pre></div>
-</div>
 
 
 

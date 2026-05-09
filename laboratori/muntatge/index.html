@@ -730,10 +730,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#escenari-recomanat" class="md-nav__link">
+  <a href="#escenari" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Escenari recomanat
+        Escenari
       
     </span>
   </a>
@@ -759,34 +759,6 @@
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Preparació del primari">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-comprovar-lestat-actual" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Comprovar l'estat actual
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-crear-snapshot" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Crear snapshot
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1582,10 +1554,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#escenari-recomanat" class="md-nav__link">
+  <a href="#escenari" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Escenari recomanat
+        Escenari
       
     </span>
   </a>
@@ -1612,34 +1584,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Preparació del primari">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-comprovar-lestat-actual" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Comprovar l'estat actual
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-crear-snapshot" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Crear snapshot
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -1663,17 +1607,9 @@
 
 
 <h1 id="muntatge-del-laboratori">Muntatge del Laboratori<a class="headerlink" href="#muntatge-del-laboratori" title="Permanent link">&para;</a></h1>
-<p>Guia pràctica per muntar el laboratori dins de Proxmox per al projecte intermodular.</p>
 <h2 id="objectiu">Objectiu<a class="headerlink" href="#objectiu" title="Permanent link">&para;</a></h2>
-<div class="admonition info">
-<p class="admonition-title">Què volem aconseguir</p>
-<ul>
-<li>Dos servidors Ubuntu</li>
-<li>Alta disponibilitat bàsica entre tots dos</li>
-<li>Serveis vulnerables perquè l'eina d'auditoria tingui coses útils a detectar</li>
-</ul>
-</div>
-<h2 id="escenari-recomanat">Escenari recomanat<a class="headerlink" href="#escenari-recomanat" title="Permanent link">&para;</a></h2>
+<p>Muntar un entorn amb dos servidors Ubuntu, alta disponibilitat bàsica i serveis vulnerables per a l'eina d'auditoria.</p>
+<h2 id="escenari">Escenari<a class="headerlink" href="#escenari" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -1700,7 +1636,6 @@
 </tr>
 </tbody>
 </table>
-<p>La IP virtual serà la que mourà <code>keepalived</code> entre els dos servidors quan caigui el node principal.</p>
 <h2 id="distribucio-de-serveis">Distribució de serveis<a class="headerlink" href="#distribucio-de-serveis" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>graph TB
     subgraph "srv-primari (192.168.0.100)"
@@ -1710,37 +1645,18 @@
         B1[SSH] &amp; B2[Apache] &amp; B3[MariaDB] &amp; B4[keepalived]
         B5[bind9] &amp; B6[vsftpd] &amp; B7[Samba]
     end</code></pre>
-<div class="admonition tip">
-<p class="admonition-title">Idea general</p>
 <ul>
 <li>Als dos servidors: <code>SSH</code>, <code>Apache</code>, <code>MariaDB</code>, <code>keepalived</code></li>
 <li>Al <code>srv-secundari</code>, a més: <code>bind9</code>, <code>vsftpd</code>, <code>Samba</code></li>
 </ul>
-<p>Amb això es pot defensar:</p>
-<ul>
-<li>Alta disponibilitat del servei web amb IP virtual</li>
-<li>Redundància bàsica entre dos nodes</li>
-<li>Un conjunt de serveis vulnerables suficient per a l'auditoria</li>
-</ul>
-</div>
 <h2 id="preparacio-del-primari">Preparació del primari<a class="headerlink" href="#preparacio-del-primari" title="Permanent link">&para;</a></h2>
-<h3 id="1-comprovar-lestat-actual">1. Comprovar l'estat actual<a class="headerlink" href="#1-comprovar-lestat-actual" title="Permanent link">&para;</a></h3>
-<p>Al <code>srv-primari</code>:</p>
+<p>Comprovació i actualització:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ip<span class="w"> </span>a
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>hostnamectl
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>sudo<span class="w"> </span>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>srv-primari
 </code></pre></div>
-<p>Si encara no s'ha fet:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>srv-primari
-</code></pre></div>
-<h3 id="2-crear-snapshot">2. Crear snapshot<a class="headerlink" href="#2-crear-snapshot" title="Permanent link">&para;</a></h3>
-<div class="admonition warning">
-<p class="admonition-title">Important</p>
-<p>Quan el sistema estigui net i actualitzat, fes un snapshot a Proxmox.</p>
-</div>
-<p>Nom recomanat:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ubuntu-base-neta
-</code></pre></div>
+<p>Snapshot a Proxmox amb nom <code>ubuntu-base-neta</code> un cop el sistema estigui net.</p>
 
 
 

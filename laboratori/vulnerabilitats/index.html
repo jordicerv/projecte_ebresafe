@@ -825,10 +825,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-mariadb-massa-exposat" class="md-nav__link">
+  <a href="#3-mariadb-exposat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. MariaDB massa exposat
+        3. MariaDB exposat
       
     </span>
   </a>
@@ -836,10 +836,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resum-de-vulnerabilitats" class="md-nav__link">
+  <a href="#resum" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Resum de vulnerabilitats
+        Resum
       
     </span>
   </a>
@@ -1565,10 +1565,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-mariadb-massa-exposat" class="md-nav__link">
+  <a href="#3-mariadb-exposat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. MariaDB massa exposat
+        3. MariaDB exposat
       
     </span>
   </a>
@@ -1576,10 +1576,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resum-de-vulnerabilitats" class="md-nav__link">
+  <a href="#resum" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Resum de vulnerabilitats
+        Resum
       
     </span>
   </a>
@@ -1607,81 +1607,44 @@
 
 
 <h1 id="vulnerabilitats-del-laboratori">Vulnerabilitats del Laboratori<a class="headerlink" href="#vulnerabilitats-del-laboratori" title="Permanent link">&para;</a></h1>
-<div class="admonition danger">
-<p class="admonition-title">Atenció</p>
-<p>Les vulnerabilitats configurades en aquesta secció són <strong>intencionades</strong> per al laboratori d'auditoria. <strong>Mai s'han d'aplicar en un entorn de producció.</strong></p>
-</div>
-<p>La idea és tenir vulnerabilitats senzilles, visibles i fàcils de justificar per demostrar les capacitats de l'eina d'auditoria.</p>
+<p>Les vulnerabilitats configurades són <strong>intencionades</strong> per al laboratori d'auditoria i serveixen per demostrar les capacitats de l'eina.</p>
 <h2 id="1-ssh-insegur">1. SSH insegur<a class="headerlink" href="#1-ssh-insegur" title="Permanent link">&para;</a></h2>
-<p>Edita als dos nodes:</p>
+<p>Als dos nodes:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/ssh/sshd_config
 </code></pre></div>
-<p>Deixa actiu:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>PasswordAuthentication yes
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>PermitRootLogin yes
 </code></pre></div>
 <p><img alt="Configuració SSH insegura" src="../../assets/img/lab/image-10.png" /></p>
-<p>Reinicia:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>ssh
 </code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Què hauria de detectar l'eina</p>
-<ul>
-<li>Port <code>22</code> obert</li>
-<li>Servei <code>OpenSSH</code></li>
-<li>Autenticació per contrasenya habilitada</li>
-<li>Hardening pobre</li>
-</ul>
-</div>
+<p><strong>Deteccions esperades:</strong> port <code>22</code> obert, servei <code>OpenSSH</code>, autenticació per contrasenya habilitada, hardening pobre.</p>
 <h2 id="2-apache-feble">2. Apache feble<a class="headerlink" href="#2-apache-feble" title="Permanent link">&para;</a></h2>
-<p>Edita als dos nodes:</p>
+<p>Als dos nodes:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/apache2/apache2.conf
 </code></pre></div>
-<p>Deixa la secció de <code>/var/www/</code> semblant a:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">&lt;Directory</span><span class="w"> </span><span class="s">/var/www/</span><span class="nt">&gt;</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="nb">Options</span><span class="w"> </span>Indexes<span class="w"> </span>FollowSymLinks
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nb">AllowOverride</span><span class="w"> </span><span class="k">None</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nb">Require</span><span class="w"> </span><span class="k">all</span><span class="w"> </span>granted
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nt">&lt;/Directory&gt;</span>
 </code></pre></div>
-<p>Reinicia:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2
 </code></pre></div>
 <p><img alt="Configuració Apache insegura" src="../../assets/img/lab/image-11.png" /></p>
-<div class="admonition warning">
-<p class="admonition-title">Què hauria de detectar l'eina</p>
-<ul>
-<li>Port <code>80</code> obert</li>
-<li>Servidor <code>Apache</code></li>
-<li>Headers de seguretat absents</li>
-<li>Directori navegable</li>
-<li>Fitxer sensible visible (<code>backup.sql.bak</code>)</li>
-</ul>
-</div>
-<h2 id="3-mariadb-massa-exposat">3. MariaDB massa exposat<a class="headerlink" href="#3-mariadb-massa-exposat" title="Permanent link">&para;</a></h2>
-<p>Edita als dos nodes:</p>
+<p><strong>Deteccions esperades:</strong> port <code>80</code> obert, servidor <code>Apache</code>, headers de seguretat absents, directori navegable, fitxer sensible visible (<code>backup.sql.bak</code>).</p>
+<h2 id="3-mariadb-exposat">3. MariaDB exposat<a class="headerlink" href="#3-mariadb-exposat" title="Permanent link">&para;</a></h2>
+<p>Als dos nodes:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/mysql/mariadb.conf.d/50-server.cnf
 </code></pre></div>
-<p>Canvia:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>bind-address = 127.0.0.1
-</code></pre></div>
-<p>per:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>bind-address = 0.0.0.0
+<p>Canviar <code>bind-address = 127.0.0.1</code> per:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>bind-address = 0.0.0.0
 </code></pre></div>
 <p><img alt="MariaDB exposat" src="../../assets/img/lab/image-12.png" /></p>
-<p>Reinicia:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mariadb
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mariadb
 </code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Què hauria de detectar l'eina</p>
-<ul>
-<li>Port <code>3306</code> obert</li>
-<li>Servei <code>MariaDB</code></li>
-<li>Accés remot habilitat</li>
-<li>Usuari amb permisos excessius</li>
-</ul>
-</div>
-<h2 id="resum-de-vulnerabilitats">Resum de vulnerabilitats<a class="headerlink" href="#resum-de-vulnerabilitats" title="Permanent link">&para;</a></h2>
+<p><strong>Deteccions esperades:</strong> port <code>3306</code> obert, servei <code>MariaDB</code>, accés remot habilitat, usuari amb permisos excessius.</p>
+<h2 id="resum">Resum<a class="headerlink" href="#resum" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -1694,17 +1657,17 @@
 <tr>
 <td>SSH</td>
 <td><code>PasswordAuthentication yes</code>, <code>PermitRootLogin yes</code></td>
-<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14h-2V9h2m0 9h-2v-2h2M1 21h22L12 2z"/></svg></span> Alt</td>
+<td>Alt</td>
 </tr>
 <tr>
 <td>Apache</td>
 <td>Directory listing, fitxers sensibles</td>
-<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14h-2V9h2m0 9h-2v-2h2M1 21h22L12 2z"/></svg></span> Alt</td>
+<td>Alt</td>
 </tr>
 <tr>
 <td>MariaDB</td>
 <td><code>bind-address = 0.0.0.0</code>, usuari amb tots els permisos</td>
-<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14h-2V9h2m0 9h-2v-2h2M1 21h22L12 2z"/></svg></span> Alt</td>
+<td>Alt</td>
 </tr>
 </tbody>
 </table>

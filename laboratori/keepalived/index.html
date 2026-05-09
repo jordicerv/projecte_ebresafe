@@ -831,10 +831,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#comprovar-la-interficie-de-xarxa" class="md-nav__link">
+  <a href="#interficie-de-xarxa" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Comprovar la interfície de xarxa
+        Interfície de xarxa
       
     </span>
   </a>
@@ -864,10 +864,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#reiniciar-el-servei" class="md-nav__link">
+  <a href="#activar-el-servei" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reiniciar el servei
+        Activar el servei
       
     </span>
   </a>
@@ -875,10 +875,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#comprovacio-de-la-ip-virtual" class="md-nav__link">
+  <a href="#comprovacio-de-la-vip" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Comprovació de la IP virtual
+        Comprovació de la VIP
       
     </span>
   </a>
@@ -909,10 +909,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-simular-caiguda-del-primari" class="md-nav__link">
+  <a href="#2-simular-caiguda" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Simular caiguda del primari
+        2. Simular caiguda
       
     </span>
   </a>
@@ -935,6 +935,17 @@
     <span class="md-ellipsis">
       
         4. Recuperar el primari
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-del-failover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrama del failover
       
     </span>
   </a>
@@ -1615,10 +1626,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#comprovar-la-interficie-de-xarxa" class="md-nav__link">
+  <a href="#interficie-de-xarxa" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Comprovar la interfície de xarxa
+        Interfície de xarxa
       
     </span>
   </a>
@@ -1648,10 +1659,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#reiniciar-el-servei" class="md-nav__link">
+  <a href="#activar-el-servei" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reiniciar el servei
+        Activar el servei
       
     </span>
   </a>
@@ -1659,10 +1670,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#comprovacio-de-la-ip-virtual" class="md-nav__link">
+  <a href="#comprovacio-de-la-vip" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Comprovació de la IP virtual
+        Comprovació de la VIP
       
     </span>
   </a>
@@ -1693,10 +1704,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-simular-caiguda-del-primari" class="md-nav__link">
+  <a href="#2-simular-caiguda" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Simular caiguda del primari
+        2. Simular caiguda
       
     </span>
   </a>
@@ -1719,6 +1730,17 @@
     <span class="md-ellipsis">
       
         4. Recuperar el primari
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-del-failover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrama del failover
       
     </span>
   </a>
@@ -1751,16 +1773,10 @@
 
 
 <h1 id="keepalived-i-failover">Keepalived i Failover<a class="headerlink" href="#keepalived-i-failover" title="Permanent link">&para;</a></h1>
-<p>Aquesta és la part clau de la pràctica d'alta disponibilitat.</p>
-<h2 id="comprovar-la-interficie-de-xarxa">Comprovar la interfície de xarxa<a class="headerlink" href="#comprovar-la-interficie-de-xarxa" title="Permanent link">&para;</a></h2>
-<p>Als dos servidors:</p>
+<h2 id="interficie-de-xarxa">Interfície de xarxa<a class="headerlink" href="#interficie-de-xarxa" title="Permanent link">&para;</a></h2>
+<p>Als dos servidors, comprovar el nom de la interfície (normalment <code>ens18</code> o <code>eth0</code>):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ip<span class="w"> </span>a
 </code></pre></div>
-<p>Apunta el nom de la interfície. En molts casos serà <code>ens18</code> o <code>eth0</code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>En els exemples d'aquesta guia es fa servir <code>ens18</code>. Si la teva és una altra, canvia-la.</p>
-</div>
 <h2 id="configuracio-del-primari">Configuració del primari<a class="headerlink" href="#configuracio-del-primari" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/keepalived/keepalived.conf
 </code></pre></div>
@@ -1823,58 +1839,41 @@
 <a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>    }
 <a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>}
 </code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Diferències clau</p>
-<ul>
-<li><strong>Primari:</strong> <code>state MASTER</code>, <code>priority 150</code></li>
-<li><strong>Secundari:</strong> <code>state BACKUP</code>, <code>priority 100</code></li>
-</ul>
-</div>
-<h2 id="reiniciar-el-servei">Reiniciar el servei<a class="headerlink" href="#reiniciar-el-servei" title="Permanent link">&para;</a></h2>
+<p><strong>Diferències clau:</strong> el primari té <code>state MASTER</code> i <code>priority 150</code>, el secundari <code>state BACKUP</code> i <code>priority 100</code>.</p>
+<h2 id="activar-el-servei">Activar el servei<a class="headerlink" href="#activar-el-servei" title="Permanent link">&para;</a></h2>
 <p>Als dos nodes:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>keepalived
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>keepalived
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>keepalived
 </code></pre></div>
-<h2 id="comprovacio-de-la-ip-virtual">Comprovació de la IP virtual<a class="headerlink" href="#comprovacio-de-la-ip-virtual" title="Permanent link">&para;</a></h2>
-<p>Primer comprova al primari:</p>
+<h2 id="comprovacio-de-la-vip">Comprovació de la VIP<a class="headerlink" href="#comprovacio-de-la-vip" title="Permanent link">&para;</a></h2>
+<p>Al primari:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ip<span class="w"> </span>a<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">192</span>.168.0.110
 </code></pre></div>
-<p>Ha d'aparèixer la IP virtual al <code>srv-primari</code>.</p>
-<p>Després prova l'accés:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>curl<span class="w"> </span>http://192.168.0.110
 </code></pre></div>
 <p><img alt="Comprovació VIP" src="../../assets/img/lab/image-13.png" /></p>
 <h2 id="prova-de-failover">Prova de failover<a class="headerlink" href="#prova-de-failover" title="Permanent link">&para;</a></h2>
-<div class="admonition success">
-<p class="admonition-title">Test important</p>
-<p>Aquest és el test que donarà més joc a la presentació.</p>
-</div>
 <h3 id="1-amb-el-primari-actiu">1. Amb el primari actiu<a class="headerlink" href="#1-amb-el-primari-actiu" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>curl<span class="w"> </span>http://192.168.0.110
 </code></pre></div>
-<p>Hauries de veure la pàgina del <code>srv-primari</code>.</p>
-<h3 id="2-simular-caiguda-del-primari">2. Simular caiguda del primari<a class="headerlink" href="#2-simular-caiguda-del-primari" title="Permanent link">&para;</a></h3>
-<p>Atura <code>keepalived</code> al primari:</p>
+<h3 id="2-simular-caiguda">2. Simular caiguda<a class="headerlink" href="#2-simular-caiguda" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>keepalived
 </code></pre></div>
-<p>O bé atura Apache:</p>
+<p>O bé:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>apache2
 </code></pre></div>
 <h3 id="3-comprovar-el-secundari">3. Comprovar el secundari<a class="headerlink" href="#3-comprovar-el-secundari" title="Permanent link">&para;</a></h3>
-<p>Al <code>srv-secundari</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>ip<span class="w"> </span>a<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">192</span>.168.0.110
 </code></pre></div>
-<p>Ara la IP virtual hauria d'haver passat al segon node.</p>
-<p>Des d'una altra màquina:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>curl<span class="w"> </span>http://192.168.0.110
 </code></pre></div>
-<p>Hauries de veure la pàgina del <code>srv-secundari</code>.</p>
 <p><img alt="Failover comprovat" src="../../assets/img/lab/image-14.png" /></p>
 <h3 id="4-recuperar-el-primari">4. Recuperar el primari<a class="headerlink" href="#4-recuperar-el-primari" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>apache2
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>keepalived
 </code></pre></div>
+<h3 id="diagrama-del-failover">Diagrama del failover<a class="headerlink" href="#diagrama-del-failover" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>sequenceDiagram
     participant C as Client
     participant P as srv-primari

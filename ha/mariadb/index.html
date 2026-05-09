@@ -1629,21 +1629,15 @@
 
 
 <h1 id="ha-de-mariadb">HA de MariaDB<a class="headerlink" href="#ha-de-mariadb" title="Permanent link">&para;</a></h1>
-<div class="admonition important">
-<p class="admonition-title">Replicació necessària</p>
-<p>MariaDB no només depèn de la <code>VIP</code>, sinó també de la <strong>replicació de dades</strong> entre nodes.</p>
-</div>
+<p>MariaDB requereix <strong>replicació de dades</strong> entre nodes, no només la VIP.</p>
 <h2 id="1-configurar-el-srv-primari">1. Configurar el srv-primari<a class="headerlink" href="#1-configurar-el-srv-primari" title="Permanent link">&para;</a></h2>
-<p>Edita:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/mysql/mariadb.conf.d/50-server.cnf
 </code></pre></div>
-<p>Deixa com a mínim:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>bind-address = 0.0.0.0
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>server-id = 1
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>log_bin = /var/log/mysql/mysql-bin.log
 </code></pre></div>
 <p><img alt="Configuració MariaDB primari" src="../../assets/img/lab/image-19.png" /></p>
-<p>Reinicia:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mariadb
 </code></pre></div>
 <h2 id="2-crear-usuari-de-replicacio">2. Crear usuari de replicació<a class="headerlink" href="#2-crear-usuari-de-replicacio" title="Permanent link">&para;</a></h2>
@@ -1656,10 +1650,7 @@
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">SHOW</span><span class="w"> </span><span class="n">MASTER</span><span class="w"> </span><span class="n">STATUS</span><span class="p">;</span>
 </code></pre></div>
 <p><img alt="Usuari de replicació" src="../../assets/img/lab/image-20.png" /></p>
-<div class="admonition warning">
-<p class="admonition-title">Important</p>
-<p>Apunta els valors de <code>File</code> i <code>Position</code> que retorna <code>SHOW MASTER STATUS</code>. Els necessitaràs al pas 4.</p>
-</div>
+<p>Apuntar els valors de <code>File</code> i <code>Position</code> que retorna <code>SHOW MASTER STATUS</code> per al pas 4.</p>
 <h2 id="3-configurar-el-srv-secundari">3. Configurar el srv-secundari<a class="headerlink" href="#3-configurar-el-srv-secundari" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/mysql/mariadb.conf.d/50-server.cnf
 </code></pre></div>
@@ -1667,7 +1658,6 @@
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>server-id = 2
 </code></pre></div>
 <p><img alt="Configuració MariaDB secundari" src="../../assets/img/lab/image-21.png" /></p>
-<p>Reinicia:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mariadb
 </code></pre></div>
 <h2 id="4-activar-la-replica-al-secundari">4. Activar la rèplica al secundari<a class="headerlink" href="#4-activar-la-replica-al-secundari" title="Permanent link">&para;</a></h2>
@@ -1683,16 +1673,12 @@
 <a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="k">START</span><span class="w"> </span><span class="n">SLAVE</span><span class="p">;</span>
 <a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="k">SHOW</span><span class="w"> </span><span class="n">SLAVE</span><span class="w"> </span><span class="n">STATUS</span><span class="err">\</span><span class="k">G</span>
 </code></pre></div>
-<p>Ha de sortir:</p>
-<ul>
-<li><code>Slave_IO_Running: Yes</code></li>
-<li><code>Slave_SQL_Running: Yes</code></li>
-</ul>
+<p>Ha de sortir <code>Slave_IO_Running: Yes</code> i <code>Slave_SQL_Running: Yes</code>.</p>
 <p><img alt="Estat de la rèplica" src="../../assets/img/lab/image-22.png" /></p>
 <h2 id="5-comprovacio">5. Comprovació<a class="headerlink" href="#5-comprovacio" title="Permanent link">&para;</a></h2>
-<p>Per comprovar que funciona correctament, creem una base de dades de prova al primari:</p>
+<p>Creació d'una base de dades de prova al primari:</p>
 <p><img alt="Creació DB de prova" src="../../assets/img/lab/image-23.png" /></p>
-<p>I també apareix a la BD secundària automàticament:</p>
+<p>Apareix automàticament al secundari:</p>
 <p><img alt="Rèplica verificada" src="../../assets/img/lab/image-24.png" /></p>
 <pre class="mermaid"><code>sequenceDiagram
     participant P as srv-primari (master)

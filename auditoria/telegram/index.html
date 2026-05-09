@@ -1646,16 +1646,13 @@
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">TELEGRAM_CHAT_ID</span><span class="o">=</span><span class="s2">&quot;el_teu_chat_id&quot;</span>
 </code></pre></div>
 <h2 id="amb-docker">Amb Docker<a class="headerlink" href="#amb-docker" title="Permanent link">&para;</a></h2>
-<p>Si detecta un fitxer <code>telegram_config.json</code> a la carpeta d'execució, el munta automàticament al contenidor:</p>
+<p>Si detecta <code>telegram_config.json</code> a la carpeta d'execució, el munta automàticament al contenidor:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>--network<span class="w"> </span>host<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/resultats:/app/dades<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/telegram_config.json:/app/telegram_config.json<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span>auditoria_pendrive
 </code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Seguretat</p>
-<p>Mai publiqueu el token del bot ni el chat_id en repositoris públics. Afegiu <code>telegram_config.json</code> al <code>.gitignore</code>.</p>
-</div>
+<p>Mai publicar el token del bot ni el chat_id en repositoris públics. Afegir <code>telegram_config.json</code> al <code>.gitignore</code>.</p>
 
 
 

@@ -1585,50 +1585,20 @@
 
 
 <h1 id="serveis-extra">Serveis Extra<a class="headerlink" href="#serveis-extra" title="Permanent link">&para;</a></h1>
-<p>Aquests serveis donen més superfície d'auditoria, però no són la part principal de l'HA.</p>
-<p>Instal·la al <code>srv-secundari</code>:</p>
+<p>Serveis instal·lats al <code>srv-secundari</code> per ampliar la superfície d'auditoria:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>bind9<span class="w"> </span>vsftpd<span class="w"> </span>samba
 </code></pre></div>
 <h2 id="1-dns-amb-bind9">1. DNS amb bind9<a class="headerlink" href="#1-dns-amb-bind9" title="Permanent link">&para;</a></h2>
-<div class="admonition info">
-<p class="admonition-title">Idea recomanada</p>
 <ul>
 <li><code>srv-primari</code>: DNS mestre</li>
 <li><code>srv-secundari</code>: DNS esclau</li>
 </ul>
-</div>
-<p><strong>Vulnerabilitats que es poden simular:</strong></p>
-<ul>
-<li>Transferència de zona oberta</li>
-<li>Versió del servei visible</li>
-</ul>
+<p>Vulnerabilitats simulades: transferència de zona oberta i versió del servei visible.</p>
 <h2 id="2-ftp-amb-vsftpd">2. FTP amb vsftpd<a class="headerlink" href="#2-ftp-amb-vsftpd" title="Permanent link">&para;</a></h2>
-<p><strong>Vulnerabilitats recomanades:</strong></p>
-<ul>
-<li>Accés anònim activat</li>
-<li>Carpeta pública amb fitxers de prova</li>
-</ul>
-<p>Exemples de fitxers:</p>
-<ul>
-<li><code>inventari.txt</code></li>
-<li><code>copia.sql</code></li>
-</ul>
+<p>Vulnerabilitats simulades: accés anònim activat i carpeta pública amb fitxers de prova (<code>inventari.txt</code>, <code>copia.sql</code>).</p>
 <h2 id="3-samba">3. Samba<a class="headerlink" href="#3-samba" title="Permanent link">&para;</a></h2>
-<p><strong>Vulnerabilitats recomanades:</strong></p>
-<ul>
-<li>Recurs compartit amb permisos massa amplis</li>
-<li>Lectura anònima dins del laboratori</li>
-</ul>
-<p>Exemples de fitxers:</p>
-<ul>
-<li><code>backup.sql</code></li>
-<li><code>usuaris.txt</code></li>
-<li><code>config_old.conf</code></li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Consell</p>
+<p>Vulnerabilitats simulades: recurs compartit amb permisos massa amplis i lectura anònima (<code>backup.sql</code>, <code>usuaris.txt</code>, <code>config_old.conf</code>).</p>
 <p>La configuració detallada d'alta disponibilitat d'aquests serveis es troba a la secció <a href="../../ha/">Alta Disponibilitat</a>.</p>
-</div>
 
 
 

@@ -1004,10 +1004,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-revisar-que-ssh-estigui-actiu" class="md-nav__link">
+  <a href="#1-verificar-ssh-actiu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Revisar que SSH estigui actiu
+        1. Verificar SSH actiu
       
     </span>
   </a>
@@ -1554,10 +1554,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-revisar-que-ssh-estigui-actiu" class="md-nav__link">
+  <a href="#1-verificar-ssh-actiu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Revisar que SSH estigui actiu
+        1. Verificar SSH actiu
       
     </span>
   </a>
@@ -1629,21 +1629,13 @@
 
 
 <h1 id="ha-de-ssh">HA de SSH<a class="headerlink" href="#ha-de-ssh" title="Permanent link">&para;</a></h1>
-<p>L'alta disponibilitat d'SSH no és de dades, sinó <strong>d'accés</strong>.</p>
-<div class="admonition info">
-<p class="admonition-title">Idea</p>
-<ul>
-<li><code>sshd</code> actiu als dos nodes</li>
-<li>Configuració semblant</li>
-<li>Connexió sempre a la <code>VIP</code></li>
-</ul>
-</div>
-<h2 id="1-revisar-que-ssh-estigui-actiu">1. Revisar que SSH estigui actiu<a class="headerlink" href="#1-revisar-que-ssh-estigui-actiu" title="Permanent link">&para;</a></h2>
+<p>L'alta disponibilitat d'SSH és d'<strong>accés</strong>: <code>sshd</code> actiu als dos nodes amb configuració semblant, connexió sempre a la VIP.</p>
+<h2 id="1-verificar-ssh-actiu">1. Verificar SSH actiu<a class="headerlink" href="#1-verificar-ssh-actiu" title="Permanent link">&para;</a></h2>
 <p>Als dos servidors:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>ssh
 </code></pre></div>
 <h2 id="2-sincronitzar-configuracio">2. Sincronitzar configuració<a class="headerlink" href="#2-sincronitzar-configuracio" title="Permanent link">&para;</a></h2>
-<p>Al <code>srv-primari</code>, sincronitzar si cal:</p>
+<p>Al <code>srv-primari</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>rsync<span class="w"> </span>-av<span class="w"> </span>/etc/ssh/<span class="w"> </span>root@192.168.0.101:/etc/ssh/
 </code></pre></div>
 <p><img alt="Sincronització SSH" src="../../assets/img/lab/image-15.png" /></p>
@@ -1652,18 +1644,13 @@
 </code></pre></div>
 <p><img alt="Reinici SSH" src="../../assets/img/lab/image-16.png" /></p>
 <h2 id="4-provar-per-la-vip">4. Provar per la VIP<a class="headerlink" href="#4-provar-per-la-vip" title="Permanent link">&para;</a></h2>
-<p>Des del PC:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ssh<span class="w"> </span>alumne@192.168.0.110
 </code></pre></div>
 <p><img alt="Connexió SSH via VIP" src="../../assets/img/lab/image-17.png" /></p>
 <h2 id="5-comprovar-failover">5. Comprovar failover<a class="headerlink" href="#5-comprovar-failover" title="Permanent link">&para;</a></h2>
-<p>Apaguem el primari:</p>
+<p>Aturant el primari, el secundari agafa la VIP i la connexió SSH continua funcionant:</p>
 <p><img alt="Failover SSH" src="../../assets/img/lab/image-18.png" /></p>
-<p>Com podem observar, el secundari agafa la IP del primari i ens podem connectar.</p>
-<div class="admonition warning">
-<p class="admonition-title">Nota important</p>
-<p>Si els dos servidors tenen claus host diferents, quan hi hagi failover pot sortir l'avís de canvi d'identitat SSH. Això no vol dir que estigui malament, però cal saber-ho explicar.</p>
-</div>
+<p>Si els dos servidors tenen claus host diferents, durant el failover pot sortir un avís de canvi d'identitat SSH. Això és normal i no indica cap error.</p>
 
 
 

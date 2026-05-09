@@ -981,24 +981,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    HTTP
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1015,47 +997,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Taula de continguts
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#idea" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Idea
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#comprovacio-rapida" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Comprovació ràpida
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -1514,36 +1455,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Taula de continguts
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#idea" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Idea
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#comprovacio-rapida" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Comprovació ràpida
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1563,21 +1474,15 @@
 
 
 <h1 id="ha-de-http">HA de HTTP<a class="headerlink" href="#ha-de-http" title="Permanent link">&para;</a></h1>
-<div class="admonition success">
-<p class="admonition-title">Ja configurat</p>
-<p>Aquesta part ja està feta amb keepalived. Aquí queda resumida per coherència.</p>
-</div>
-<h2 id="idea">Idea<a class="headerlink" href="#idea" title="Permanent link">&para;</a></h2>
+<p>L'alta disponibilitat del servei web està garantida per <code>keepalived</code>: mateixa web als dos nodes amb accés a través de la VIP.</p>
 <ul>
-<li>Mateixa web als dos nodes</li>
-<li>Accés per <code>http://192.168.0.110</code></li>
-<li>Si cau el primari, el secundari continua responent</li>
+<li>Si cau el primari, el secundari continua responent a <code>http://192.168.0.110</code></li>
+<li>El contingut web es manté sincronitzat amb <code>rsync</code></li>
 </ul>
-<h2 id="comprovacio-rapida">Comprovació ràpida<a class="headerlink" href="#comprovacio-rapida" title="Permanent link">&para;</a></h2>
-<p>Des del PC:</p>
+<p>Comprovació:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>http://192.168.0.110
 </code></pre></div>
-<p>El failover ja ha estat provat a la secció de <a href="../../laboratori/keepalived/">Keepalived</a>.</p>
+<p>El failover del servei web està documentat i provat a la secció de <a href="../../laboratori/keepalived/">Keepalived</a>.</p>
 
 
 

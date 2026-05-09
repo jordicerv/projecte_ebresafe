@@ -1088,10 +1088,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-configurar-zona-mestra-al-srv-primari" class="md-nav__link">
+  <a href="#1-zona-mestra-al-srv-primari" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Configurar zona mestra al srv-primari
+        1. Zona mestra al srv-primari
       
     </span>
   </a>
@@ -1099,10 +1099,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-configurar-zona-esclava-al-srv-secundari" class="md-nav__link">
+  <a href="#2-zona-esclava-al-srv-secundari" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Configurar zona esclava al srv-secundari
+        2. Zona esclava al srv-secundari
       
     </span>
   </a>
@@ -1121,10 +1121,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-provar" class="md-nav__link">
+  <a href="#4-verificacio" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Provar
+        4. Verificació
       
     </span>
   </a>
@@ -1543,10 +1543,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-configurar-zona-mestra-al-srv-primari" class="md-nav__link">
+  <a href="#1-zona-mestra-al-srv-primari" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Configurar zona mestra al srv-primari
+        1. Zona mestra al srv-primari
       
     </span>
   </a>
@@ -1554,10 +1554,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-configurar-zona-esclava-al-srv-secundari" class="md-nav__link">
+  <a href="#2-zona-esclava-al-srv-secundari" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Configurar zona esclava al srv-secundari
+        2. Zona esclava al srv-secundari
       
     </span>
   </a>
@@ -1576,10 +1576,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-provar" class="md-nav__link">
+  <a href="#4-verificacio" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Provar
+        4. Verificació
       
     </span>
   </a>
@@ -1607,12 +1607,8 @@
 
 
 <h1 id="ha-de-dns">HA de DNS<a class="headerlink" href="#ha-de-dns" title="Permanent link">&para;</a></h1>
-<div class="admonition tip">
-<p class="admonition-title">Estratègia</p>
-<p>L'alta disponibilitat del DNS es defensa amb redundància <strong>master/slave</strong>, no només amb <code>keepalived</code>.</p>
-</div>
-<h2 id="1-configurar-zona-mestra-al-srv-primari">1. Configurar zona mestra al srv-primari<a class="headerlink" href="#1-configurar-zona-mestra-al-srv-primari" title="Permanent link">&para;</a></h2>
-<p>Edita:</p>
+<p>L'alta disponibilitat del DNS es basa en redundància <strong>master/slave</strong> entre els dos servidors.</p>
+<h2 id="1-zona-mestra-al-srv-primari">1. Zona mestra al srv-primari<a class="headerlink" href="#1-zona-mestra-al-srv-primari" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/bind/named.conf.local
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>zone &quot;lab.local&quot; {
@@ -1622,11 +1618,10 @@
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>};
 </code></pre></div>
 <p><img alt="Zona mestra" src="../../assets/img/lab/image-25.png" /></p>
-<p>Crea o revisa la zona:</p>
+<p>Crear el fitxer de zona:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>cp<span class="w"> </span>/etc/bind/db.local<span class="w"> </span>/etc/bind/db.lab.local
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/bind/db.lab.local
 </code></pre></div>
-<p>Exemple:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$TTL 604800
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>@   IN  SOA ns1.lab.local. admin.lab.local. (
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        2
@@ -1643,7 +1638,7 @@
 <a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>db   IN  A   192.168.0.110
 </code></pre></div>
 <p><img alt="Fitxer de zona" src="../../assets/img/lab/image-26.png" /></p>
-<h2 id="2-configurar-zona-esclava-al-srv-secundari">2. Configurar zona esclava al srv-secundari<a class="headerlink" href="#2-configurar-zona-esclava-al-srv-secundari" title="Permanent link">&para;</a></h2>
+<h2 id="2-zona-esclava-al-srv-secundari">2. Zona esclava al srv-secundari<a class="headerlink" href="#2-zona-esclava-al-srv-secundari" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/bind/named.conf.local
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>zone &quot;lab.local&quot; {
@@ -1657,8 +1652,7 @@
 <p>Als dos servidors:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>bind9
 </code></pre></div>
-<h2 id="4-provar">4. Provar<a class="headerlink" href="#4-provar" title="Permanent link">&para;</a></h2>
-<p>Des del PC o des del <code>srv-secundari</code>:</p>
+<h2 id="4-verificacio">4. Verificació<a class="headerlink" href="#4-verificacio" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>dig<span class="w"> </span>@192.168.0.100<span class="w"> </span>lab.local<span class="w"> </span>AXFR
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>dig<span class="w"> </span>@192.168.0.101<span class="w"> </span>lab.local
 </code></pre></div>

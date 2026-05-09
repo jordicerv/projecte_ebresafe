@@ -1401,10 +1401,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#arquitectura-i-objectiu" class="md-nav__link">
+  <a href="#objectiu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Arquitectura i Objectiu
+        Objectiu
       
     </span>
   </a>
@@ -1426,7 +1426,7 @@
   <a href="#decisions-tecniques" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Decisions Tècniques
+        Decisions tècniques
       
     </span>
   </a>
@@ -1434,10 +1434,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#modificacio-del-backend" class="md-nav__link">
+  <a href="#rutes-configurables" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Modificació del Backend
+        Rutes configurables
       
     </span>
   </a>
@@ -1453,52 +1453,13 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Comandes Docker">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#construir-la-imatge" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Construir la imatge
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exportar-al-usb" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exportar al USB
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#executar" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Executar
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
-  <a href="#flux-usb-complet" class="md-nav__link">
+  <a href="#flux-usb" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Flux USB complet
+        Flux USB
       
     </span>
   </a>
@@ -1604,10 +1565,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#arquitectura-i-objectiu" class="md-nav__link">
+  <a href="#objectiu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Arquitectura i Objectiu
+        Objectiu
       
     </span>
   </a>
@@ -1629,7 +1590,7 @@
   <a href="#decisions-tecniques" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Decisions Tècniques
+        Decisions tècniques
       
     </span>
   </a>
@@ -1637,10 +1598,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#modificacio-del-backend" class="md-nav__link">
+  <a href="#rutes-configurables" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Modificació del Backend
+        Rutes configurables
       
     </span>
   </a>
@@ -1656,52 +1617,13 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Comandes Docker">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#construir-la-imatge" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Construir la imatge
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exportar-al-usb" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exportar al USB
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#executar" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Executar
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
-  <a href="#flux-usb-complet" class="md-nav__link">
+  <a href="#flux-usb" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Flux USB complet
+        Flux USB
       
     </span>
   </a>
@@ -1729,41 +1651,36 @@
 
 
 <h1 id="docker-i-usb">Docker i USB<a class="headerlink" href="#docker-i-usb" title="Permanent link">&para;</a></h1>
-<h2 id="arquitectura-i-objectiu">Arquitectura i Objectiu<a class="headerlink" href="#arquitectura-i-objectiu" title="Permanent link">&para;</a></h2>
-<div class="admonition info">
-<p class="admonition-title">Objectiu</p>
-<p>Encapsular tota l'eina d'auditoria en un contenidor Docker portable: portar-lo en un USB, connectar-lo a qualsevol equip amb Docker instal·lat i executar-lo sense necessitat d'instal·lar res al sistema amfitrió.</p>
-</div>
+<h2 id="objectiu">Objectiu<a class="headerlink" href="#objectiu" title="Permanent link">&para;</a></h2>
+<p>Encapsular l'eina d'auditoria en un contenidor Docker portable: portar-lo en un USB, connectar-lo a qualsevol equip amb Docker i executar-lo sense instal·lar res.</p>
 <h2 id="dockerfile">Dockerfile<a class="headerlink" href="#dockerfile" title="Permanent link">&para;</a></h2>
-<p>La imatge es basa en <code>python:3.12-slim</code> i instal·la totes les eines necessàries:</p>
+<p>La imatge es basa en <code>python:3.12-slim</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.12-slim</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c"># Dependències del sistema: nmap, git, smbclient, GUI (tkinter/X11)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--no-install-recommends<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span>nmap<span class="w"> </span>git<span class="w"> </span>smbclient<span class="w"> </span>samba-common-bin<span class="w"> </span>perl<span class="w"> </span>ldap-utils<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span>iputils-ping<span class="w"> </span>net-tools<span class="w"> </span>python3-tk<span class="w"> </span>libx11-6<span class="w"> </span>libxext6<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span>libxrender1<span class="w"> </span>libxft2<span class="w"> </span>fonts-noto-color-emoji<span class="w"> </span>fontconfig<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/apt/lists/*
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c"># enum4linux des de GitHub (no disponible a apt de Debian Trixie)</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="k">RUN</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/CiscoCXSecurity/enum4linux.git<span class="w"> </span>/opt/enum4linux<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/opt/enum4linux/enum4linux.pl<span class="w"> </span>/usr/local/bin/enum4linux
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="k">COPY</span><span class="w"> </span>requirements.txt<span class="w"> </span>/app/
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>-r<span class="w"> </span>requirements.txt
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>ssh-audit
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>git+https://github.com/laramies/theHarvester.git
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="k">COPY</span><span class="w"> </span>portscan+ssh+enum.py<span class="w"> </span>telegram_bot.py<span class="w"> </span>telegram_gui.py<span class="w"> </span>main.py<span class="w"> </span>/app/
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="k">RUN</span><span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/app/dades
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">DOCKER_CONTAINER</span><span class="o">=</span><span class="m">1</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">REPORTS_DIR</span><span class="o">=</span>/app/dades
-<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
-<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="k">ENTRYPOINT</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;telegram_gui.py&quot;</span><span class="p">]</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--no-install-recommends<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span>nmap<span class="w"> </span>git<span class="w"> </span>smbclient<span class="w"> </span>samba-common-bin<span class="w"> </span>perl<span class="w"> </span>ldap-utils<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span>iputils-ping<span class="w"> </span>net-tools<span class="w"> </span>python3-tk<span class="w"> </span>libx11-6<span class="w"> </span>libxext6<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span>libxrender1<span class="w"> </span>libxft2<span class="w"> </span>fonts-noto-color-emoji<span class="w"> </span>fontconfig<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/apt/lists/*
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="k">RUN</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/CiscoCXSecurity/enum4linux.git<span class="w"> </span>/opt/enum4linux<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/opt/enum4linux/enum4linux.pl<span class="w"> </span>/usr/local/bin/enum4linux
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="k">COPY</span><span class="w"> </span>requirements.txt<span class="w"> </span>/app/
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>ssh-audit
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>git+https://github.com/laramies/theHarvester.git
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="k">COPY</span><span class="w"> </span>portscan+ssh+enum.py<span class="w"> </span>telegram_bot.py<span class="w"> </span>telegram_gui.py<span class="w"> </span>main.py<span class="w"> </span>/app/
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="k">RUN</span><span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/app/dades
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">DOCKER_CONTAINER</span><span class="o">=</span><span class="m">1</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">REPORTS_DIR</span><span class="o">=</span>/app/dades
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="k">ENTRYPOINT</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;telegram_gui.py&quot;</span><span class="p">]</span>
 </code></pre></div>
-<h2 id="decisions-tecniques">Decisions Tècniques<a class="headerlink" href="#decisions-tecniques" title="Permanent link">&para;</a></h2>
+<h2 id="decisions-tecniques">Decisions tècniques<a class="headerlink" href="#decisions-tecniques" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -1786,7 +1703,7 @@
 </tr>
 <tr>
 <td><code>--network host</code></td>
-<td>Per escanejar la xarxa real del host, no la xarxa interna Docker</td>
+<td>Per escanejar la xarxa real del host</td>
 </tr>
 <tr>
 <td><code>REPORTS_DIR</code> env var</td>
@@ -1794,8 +1711,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="modificacio-del-backend">Modificació del Backend<a class="headerlink" href="#modificacio-del-backend" title="Permanent link">&para;</a></h2>
-<p>Les rutes dels informes es van fer configurables via la variable d'entorn <code>REPORTS_DIR</code>, permetent que funcioni tant dins com fora de Docker sense canvis:</p>
+<h2 id="rutes-configurables">Rutes configurables<a class="headerlink" href="#rutes-configurables" title="Permanent link">&para;</a></h2>
+<p>Les rutes dels informes es van fer configurables via <code>REPORTS_DIR</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">_REPORTS_BASE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;REPORTS_DIR&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">if</span> <span class="n">_REPORTS_BASE</span><span class="p">:</span>
@@ -1804,18 +1721,18 @@
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">DIRECTORI_REPORTS</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_REPORTS_BASE</span><span class="p">,</span> <span class="s2">&quot;informes_auditoria&quot;</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="comandes-docker">Comandes Docker<a class="headerlink" href="#comandes-docker" title="Permanent link">&para;</a></h2>
-<h3 id="construir-la-imatge">Construir la imatge<a class="headerlink" href="#construir-la-imatge" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>auditoria_pendrive<span class="w"> </span>.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Construir</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>auditoria_pendrive<span class="w"> </span>.
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Exportar al USB</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>docker<span class="w"> </span>save<span class="w"> </span>auditoria_pendrive<span class="w"> </span>-o<span class="w"> </span>docker_export/auditoria_pendrive.tar
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Executar</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>--network<span class="w"> </span>host<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/resultats:/app/dades<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span>auditoria_pendrive
 </code></pre></div>
-<h3 id="exportar-al-usb">Exportar al USB<a class="headerlink" href="#exportar-al-usb" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>save<span class="w"> </span>auditoria_pendrive<span class="w"> </span>-o<span class="w"> </span>docker_export/auditoria_pendrive.tar
-</code></pre></div>
-<h3 id="executar">Executar<a class="headerlink" href="#executar" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>--network<span class="w"> </span>host<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/resultats:/app/dades<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span>auditoria_pendrive
-</code></pre></div>
-<h2 id="flux-usb-complet">Flux USB complet<a class="headerlink" href="#flux-usb-complet" title="Permanent link">&para;</a></h2>
+<h2 id="flux-usb">Flux USB<a class="headerlink" href="#flux-usb" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>graph TB
     subgraph "Preparació a casa"
         A["docker build -t auditoria_pendrive ."] --&gt; B["docker save ... -o auditoria_pendrive.tar"]

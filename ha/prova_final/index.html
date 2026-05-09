@@ -1222,10 +1222,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#repetir-les-proves" class="md-nav__link">
+  <a href="#verificacio-del-failover" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Repetir les proves
+        Verificació del failover
       
     </span>
   </a>
@@ -1233,21 +1233,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resum-minim-defensable" class="md-nav__link">
+  <a href="#diagrama-del-failover" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Resum mínim defensable
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#diagrama-de-la-prova" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Diagrama de la prova
+        Diagrama del failover
       
     </span>
   </a>
@@ -1576,10 +1565,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#repetir-les-proves" class="md-nav__link">
+  <a href="#verificacio-del-failover" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Repetir les proves
+        Verificació del failover
       
     </span>
   </a>
@@ -1587,21 +1576,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resum-minim-defensable" class="md-nav__link">
+  <a href="#diagrama-del-failover" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Resum mínim defensable
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#diagrama-de-la-prova" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Diagrama de la prova
+        Diagrama del failover
       
     </span>
   </a>
@@ -1630,7 +1608,7 @@
 
 <h1 id="prova-final-de-tots-els-serveis">Prova Final de Tots els Serveis<a class="headerlink" href="#prova-final-de-tots-els-serveis" title="Permanent link">&para;</a></h1>
 <h2 id="comprovacio-amb-el-primari-actiu">Comprovació amb el primari actiu<a class="headerlink" href="#comprovacio-amb-el-primari-actiu" title="Permanent link">&para;</a></h2>
-<p>Des del PC, comprova tots els serveis:</p>
+<p>Des del PC, verificar tots els serveis a través de la VIP:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh<span class="w"> </span>alumne@192.168.0.110
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>curl<span class="w"> </span>http://192.168.0.110
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>ftp<span class="w"> </span><span class="m">192</span>.168.0.110
@@ -1642,11 +1620,8 @@
 <p>Al <code>srv-primari</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>keepalived
 </code></pre></div>
-<h2 id="repetir-les-proves">Repetir les proves<a class="headerlink" href="#repetir-les-proves" title="Permanent link">&para;</a></h2>
-<div class="admonition success">
-<p class="admonition-title">Resultat esperat</p>
-<p>Tots els serveis haurien de continuar responent a través de la <code>VIP</code>, ara servits pel <code>srv-secundari</code>.</p>
-</div>
+<h2 id="verificacio-del-failover">Verificació del failover<a class="headerlink" href="#verificacio-del-failover" title="Permanent link">&para;</a></h2>
+<p>Un cop aturat el primari, repetir les mateixes proves. Tots els serveis han de continuar responent a través de la VIP, ara servits pel <code>srv-secundari</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ssh<span class="w"> </span>alumne@192.168.0.110
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>curl<span class="w"> </span>http://192.168.0.110
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>ftp<span class="w"> </span><span class="m">192</span>.168.0.110
@@ -1654,19 +1629,7 @@
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>mysql<span class="w"> </span>-h<span class="w"> </span><span class="m">192</span>.168.0.110<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-p
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>dig<span class="w"> </span>@192.168.0.110<span class="w"> </span>lab.local
 </code></pre></div>
-<h2 id="resum-minim-defensable">Resum mínim defensable<a class="headerlink" href="#resum-minim-defensable" title="Permanent link">&para;</a></h2>
-<div class="admonition tip">
-<p class="admonition-title">Mínim recomanat</p>
-<ol>
-<li><code>keepalived</code> amb <code>VIP</code> funcional</li>
-<li><code>SSH</code> i <code>HTTP</code> responent per la <code>VIP</code></li>
-<li><code>FTP</code> i <code>Samba</code> sincronitzats amb <code>rsync</code></li>
-<li><code>DNS</code> amb <code>master/slave</code></li>
-<li><code>MariaDB</code> amb rèplica simple</li>
-</ol>
-<p>Amb això queda molt millor explicat i no sembla que <code>keepalived</code> sigui només "la part del web".</p>
-</div>
-<h2 id="diagrama-de-la-prova">Diagrama de la prova<a class="headerlink" href="#diagrama-de-la-prova" title="Permanent link">&para;</a></h2>
+<h2 id="diagrama-del-failover">Diagrama del failover<a class="headerlink" href="#diagrama-del-failover" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>graph TB
     subgraph "Estat normal"
         P1["srv-primari (MASTER)"] --&gt;|serveix| VIP1["VIP 192.168.0.110"]

@@ -1390,10 +1390,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#comanda-completa-dexecucio" class="md-nav__link">
+  <a href="#comanda-completa" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Comanda completa d'execució
+        Comanda completa
       
     </span>
   </a>
@@ -1406,15 +1406,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#flux-de-treball-usb" class="md-nav__link">
+  <a href="#flux-usb" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Flux de Treball USB
+        Flux USB
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Flux de Treball USB">
+    <nav class="md-nav" aria-label="Flux USB">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1633,10 +1633,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#comanda-completa-dexecucio" class="md-nav__link">
+  <a href="#comanda-completa" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Comanda completa d'execució
+        Comanda completa
       
     </span>
   </a>
@@ -1649,15 +1649,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#flux-de-treball-usb" class="md-nav__link">
+  <a href="#flux-usb" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Flux de Treball USB
+        Flux USB
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Flux de Treball USB">
+    <nav class="md-nav" aria-label="Flux USB">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1702,33 +1702,19 @@
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">source</span><span class="w"> </span>entorn/bin/activate
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>python<span class="w"> </span>telegram_gui.py
 </code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Descripció</p>
 <p>La GUI tkinter ofereix pestanyes per a cada mòdul d'auditoria, permetent executar escaneigs, veure resultats i enviar informes via Telegram.</p>
-</div>
 <h2 id="mode-docker-usb">Mode Docker (USB)<a class="headerlink" href="#mode-docker-usb" title="Permanent link">&para;</a></h2>
 <h3 id="preparacio-a-casa">Preparació (a casa)<a class="headerlink" href="#preparacio-a-casa" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Construir la imatge Docker</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>auditoria_pendrive<span class="w"> </span>.
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Exportar la imatge al USB</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>docker<span class="w"> </span>save<span class="w"> </span>auditoria_pendrive<span class="w"> </span>-o<span class="w"> </span>docker_export/auditoria_pendrive.tar
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>auditoria_pendrive<span class="w"> </span>.
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>docker<span class="w"> </span>save<span class="w"> </span>auditoria_pendrive<span class="w"> </span>-o<span class="w"> </span>docker_export/auditoria_pendrive.tar
 </code></pre></div>
 <h3 id="execucio-al-client">Execució (al client)<a class="headerlink" href="#execucio-al-client" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>/media/.../docker_export
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>chmod<span class="w"> </span>+x<span class="w"> </span>executar.sh
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>./executar.sh
 </code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Detecció automàtica</p>
-<p>El script <code>executar.sh</code> detecta automàticament si hi ha pantalla disponible:</p>
-<ul>
-<li><strong>Si n'hi ha:</strong> obre la GUI</li>
-<li><strong>Si no:</strong> arrenca el mode terminal</li>
-</ul>
-<p>A més, si detecta un fitxer <code>telegram_config.json</code>, el munta automàticament al contenidor.</p>
-</div>
-<h3 id="comanda-completa-dexecucio">Comanda completa d'execució<a class="headerlink" href="#comanda-completa-dexecucio" title="Permanent link">&para;</a></h3>
+<p>El script <code>executar.sh</code> detecta automàticament si hi ha pantalla disponible (GUI o mode terminal) i munta <code>telegram_config.json</code> si existeix.</p>
+<h3 id="comanda-completa">Comanda completa<a class="headerlink" href="#comanda-completa" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>--network<span class="w"> </span>host<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/resultats:/app/dades<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span>auditoria_pendrive
@@ -1743,7 +1729,7 @@
 <tbody>
 <tr>
 <td><code>-it</code></td>
-<td>Mode interactiu (menú CLI)</td>
+<td>Mode interactiu</td>
 </tr>
 <tr>
 <td><code>--rm</code></td>
@@ -1755,11 +1741,11 @@
 </tr>
 <tr>
 <td><code>-v $(pwd)/resultats:/app/dades</code></td>
-<td>Munta carpeta local per a persistència dels informes</td>
+<td>Persistència dels informes</td>
 </tr>
 </tbody>
 </table>
-<h2 id="flux-de-treball-usb">Flux de Treball USB<a class="headerlink" href="#flux-de-treball-usb" title="Permanent link">&para;</a></h2>
+<h2 id="flux-usb">Flux USB<a class="headerlink" href="#flux-usb" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>graph LR
     subgraph "A casa"
         A[docker build] --&gt; B[docker save]
@@ -1774,22 +1760,18 @@
     end
     C --&gt;|USB| D</code></pre>
 <h3 id="pas-a-pas">Pas a pas<a class="headerlink" href="#pas-a-pas" title="Permanent link">&para;</a></h3>
-<p><strong>Preparació (a casa):</strong></p>
+<p><strong>Preparació:</strong></p>
 <ol>
 <li>Construir la imatge: <code>docker build -t auditoria_pendrive .</code></li>
 <li>Exportar al USB: <code>docker save auditoria_pendrive -o /media/USB/auditoria_pendrive.tar</code></li>
 <li>Copiar la carpeta <code>docker_export/</code> al USB</li>
 </ol>
-<p><strong>Execució al client:</strong></p>
+<p><strong>Execució:</strong></p>
 <ol>
 <li>Carregar la imatge: <code>docker load -i auditoria_pendrive.tar</code></li>
 <li>Executar el llançador: <code>./executar.sh</code></li>
-<li>Desconnectar el USB — <strong>no queda cap rastre al sistema amfitrió</strong></li>
+<li>Desconnectar el USB — no queda cap rastre al sistema amfitrió</li>
 </ol>
-<div class="admonition success">
-<p class="admonition-title">Portabilitat</p>
-<p>L'eina és completament portable gràcies a Docker. Un cop exportada en un USB, es pot executar en qualsevol màquina amb Docker instal·lat sense deixar cap rastre al sistema amfitrió.</p>
-</div>
 
 
 

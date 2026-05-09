@@ -1429,10 +1429,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#taula-de-problemes" class="md-nav__link">
+  <a href="#resum" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Taula de problemes
+        Resum
       
     </span>
   </a>
@@ -1571,10 +1571,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#taula-de-problemes" class="md-nav__link">
+  <a href="#resum" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Taula de problemes
+        Resum
       
     </span>
   </a>
@@ -1663,12 +1663,12 @@
 
 
 <h1 id="problemes-trobats-i-solucions">Problemes Trobats i Solucions<a class="headerlink" href="#problemes-trobats-i-solucions" title="Permanent link">&para;</a></h1>
-<h2 id="taula-de-problemes">Taula de problemes<a class="headerlink" href="#taula-de-problemes" title="Permanent link">&para;</a></h2>
+<h2 id="resum">Resum<a class="headerlink" href="#resum" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
 <th>Problema</th>
-<th>Solució Aplicada</th>
+<th>Solució</th>
 </tr>
 </thead>
 <tbody>
@@ -1692,34 +1692,18 @@
 </table>
 <h2 id="detalls">Detalls<a class="headerlink" href="#detalls" title="Permanent link">&para;</a></h2>
 <h3 id="enum4linux-no-disponible-a-apt">enum4linux no disponible a apt<a class="headerlink" href="#enum4linux-no-disponible-a-apt" title="Permanent link">&para;</a></h3>
-<div class="admonition warning">
-<p class="admonition-title">Problema</p>
-<p>A Debian Trixie (base de <code>python:3.12-slim</code>), <code>enum4linux</code> no existeix com a paquet apt.</p>
-</div>
-<p><strong>Solució:</strong> Instal·lació directa des de GitHub:</p>
+<p>A Debian Trixie (base de <code>python:3.12-slim</code>), <code>enum4linux</code> no existeix com a paquet. Solució: instal·lació des de GitHub:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">RUN</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/CiscoCXSecurity/enum4linux.git<span class="w"> </span>/opt/enum4linux<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/opt/enum4linux/enum4linux.pl<span class="w"> </span>/usr/local/bin/enum4linux
 </code></pre></div>
 <h3 id="theharvester-des-de-pypi">theHarvester des de PyPI<a class="headerlink" href="#theharvester-des-de-pypi" title="Permanent link">&para;</a></h3>
-<div class="admonition warning">
-<p class="admonition-title">Problema</p>
-<p>El paquet <code>theHarvester</code> a PyPI és un placeholder (versió 0.0.1) i no funciona.</p>
-</div>
-<p><strong>Solució:</strong> Instal·lació des del repositori oficial:</p>
+<p>El paquet <code>theHarvester</code> a PyPI és un placeholder (v0.0.1). Solució: instal·lació des del repositori oficial:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>git+https://github.com/laramies/theHarvester.git
 </code></pre></div>
 <h3 id="versio-de-python">Versió de Python<a class="headerlink" href="#versio-de-python" title="Permanent link">&para;</a></h3>
-<div class="admonition warning">
-<p class="admonition-title">Problema</p>
-<p><code>aiodns</code> (dependència de theHarvester) requereix Python &gt;= 3.10, però la imatge inicial era <code>python:3.9-slim</code>.</p>
-</div>
-<p><strong>Solució:</strong> Actualització de la imatge base a <code>python:3.12-slim</code>.</p>
+<p><code>aiodns</code> (dependència de theHarvester) requereix Python &gt;= 3.10, però la imatge inicial era <code>python:3.9-slim</code>. Solució: actualització a <code>python:3.12-slim</code>.</p>
 <h3 id="xarxa-docker">Xarxa Docker<a class="headerlink" href="#xarxa-docker" title="Permanent link">&para;</a></h3>
-<div class="admonition warning">
-<p class="admonition-title">Problema</p>
-<p>Per defecte, Docker utilitza una xarxa interna. Nmap només escanneja aquesta xarxa virtual i no troba els hosts reals.</p>
-</div>
-<p><strong>Solució:</strong> Afegir <code>--network host</code> per utilitzar la xarxa real del host:</p>
+<p>Per defecte, Docker utilitza una xarxa interna i nmap no troba els hosts reals. Solució: <code>--network host</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>--network<span class="w"> </span>host<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/resultats:/app/dades<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span>auditoria_pendrive
