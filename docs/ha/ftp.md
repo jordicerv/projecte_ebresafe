@@ -1,11 +1,6 @@
 # HA de FTP
 
-Per a `vsftpd`, la solució és **actiu-passiu**:
-
-- `vsftpd` als dos nodes
-- Mateix directori FTP
-- Contingut sincronitzat
-- Connexió per la `VIP`
+`vsftpd` en mode **actiu-passiu**: mateix servei, directori i configuració als dos nodes, amb connexió per la VIP.
 
 ## 1. Comprovar servei
 
@@ -17,7 +12,7 @@ sudo systemctl status vsftpd
 
 ## 2. Sincronitzar directori FTP
 
-Al `srv-primari`, si feu servir `/srv/ftp/compartit`:
+Al `srv-primari`:
 
 ```bash
 sudo rsync -av /srv/ftp/compartit/ root@192.168.0.101:/srv/ftp/compartit/
@@ -45,18 +40,6 @@ sudo systemctl restart vsftpd
 
 ## 5. Provar per la VIP
 
-Des del PC:
-
 ```bash
 ftp 192.168.0.110
 ```
-
-## Què defensar
-
-!!! success "Alta disponibilitat d'FTP"
-    L'alta disponibilitat d'FTP es basa en:
-
-    - Mateix servei als dos nodes
-    - Mateixa configuració
-    - Mateix contingut
-    - `VIP` comuna

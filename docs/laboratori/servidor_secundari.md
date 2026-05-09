@@ -1,8 +1,6 @@
 # Servidor Secundari
 
-## Creació del servidor
-
-Crea una segona Ubuntu Server amb la mateixa xarxa que el primari.
+## Creació
 
 | Paràmetre | Valor |
 |-----------|-------|
@@ -16,20 +14,12 @@ Comprovacions bàsiques:
 ip a
 hostnamectl
 ping 192.168.0.100
-```
-
-Posa-li el nom:
-
-```bash
 sudo hostnamectl set-hostname srv-secundari
 ```
 
-## Si el secundari és un clon de Proxmox
+## Configuració del clon
 
-!!! warning "Atenció"
-    Si clones la VM del primari, normalment Proxmox generarà una MAC nova per a la targeta de xarxa del clon. Tot i això, cal revisar la configuració interna d'Ubuntu abans d'arrencar els dos servidors alhora.
-
-**Ordre recomanat:**
+Si el secundari és un clon de Proxmox, cal seguir aquest ordre:
 
 1. Clonar la VM
 2. Comprovar a Proxmox que la MAC del clon és diferent
@@ -38,18 +28,11 @@ sudo hostnamectl set-hostname srv-secundari
 5. Revisar `netplan`
 6. Regenerar claus SSH
 
-### 1. Comprovar la MAC del clon
+### 1. Comprovar la MAC
 
-A Proxmox:
-
-- Entra a la VM clonada
-- Ves a `Hardware`
-- Entra a `Network Device`
-- Comprova que la MAC no sigui la mateixa que la del primari
+A Proxmox: VM clonada → `Hardware` → `Network Device` → verificar que la MAC és diferent de la del primari.
 
 ### 2. Canviar hostname
-
-Al clon:
 
 ```bash
 sudo hostnamectl set-hostname srv-secundari
@@ -60,13 +43,9 @@ hostnamectl
 
 ### 3. Canviar la IP
 
-Edita el fitxer de `netplan`:
-
 ```bash
 sudo nano /etc/netplan/00-installer-config.yaml
 ```
-
-Configuració per al secundari:
 
 ```yaml
 network:
@@ -86,47 +65,30 @@ network:
 
 ![Configuració netplan](../assets/img/lab/image-1.png)
 
-Aplica canvis:
-
 ```bash
 sudo chmod 600 /etc/netplan/00-installer-config.yaml
 sudo netplan apply
 ip a
 ```
 
-!!! tip "Resolució de problemes amb netplan"
-    Si `netplan apply` dona error, comprova si tens més d'un fitxer YAML configurant la mateixa interfície:
+Si `netplan apply` dona error per conflicte amb `50-cloud-init.yaml`:
 
-    ```bash
-    ls -l /etc/netplan/
-    sudo grep -R "ens18\\|gateway4\\|routes:" /etc/netplan
-    ```
+```bash
+sudo mv /etc/netplan/50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml.bak
+sudo chmod 600 /etc/netplan/00-installer-config.yaml
+sudo netplan generate
+sudo netplan apply
+```
 
-    Si hi ha dos fitxers definint `ens18` (per exemple `00-installer-config.yaml` i `50-cloud-init.yaml`), cal deixar-ne només un:
+Per evitar que `cloud-init` regeneri la xarxa:
 
-    ```bash
-    sudo mv /etc/netplan/50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml.bak
-    sudo chmod 600 /etc/netplan/00-installer-config.yaml
-    sudo netplan generate
-    sudo netplan apply
-    ```
-
-    Per evitar que `cloud-init` regeneri la xarxa:
-
-    ```bash
-    echo 'network: {config: disabled}' | sudo tee /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
-    ```
+```bash
+echo 'network: {config: disabled}' | sudo tee /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
+```
 
 ### 4. Revisar si netplan està lligat a una MAC
 
-Algunes configuracions poden tenir:
-
-```yaml
-match:
-  macaddress: aa:bb:cc:dd:ee:ff
-```
-
-Si hi surt la MAC antiga del primari, canvia-la o elimina el bloc `match`.
+Si la configuració conté un bloc `match` amb la MAC antiga del primari, canviar-la o eliminar-lo.
 
 ### 5. Actualitzar `/etc/hosts`
 
@@ -145,9 +107,6 @@ sudo nano /etc/hosts
 
 ### 6. Regenerar claus SSH del clon
 
-!!! note "Opcional però recomanable"
-    Per tenir dues màquines realment independents.
-
 ```bash
 sudo rm -f /etc/ssh/ssh_host_*
 sudo dpkg-reconfigure openssh-server
@@ -156,7 +115,7 @@ sudo systemctl restart ssh
 
 ![Regeneració claus SSH](../assets/img/lab/image-3.png)
 
-### 7. Comprovacions finals del clon
+### 7. Comprovacions finals
 
 ```bash
 hostnamectl
@@ -165,5 +124,3 @@ ip route
 ping 192.168.0.100
 ssh auditor@192.168.0.100
 ```
-
-Quan això funcioni, ja es poden arrencar alhora el primari i el secundari sense risc de conflicte de xarxa.

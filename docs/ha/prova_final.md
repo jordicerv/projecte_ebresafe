@@ -2,7 +2,7 @@
 
 ## Comprovació amb el primari actiu
 
-Des del PC, comprova tots els serveis:
+Des del PC, verificar tots els serveis a través de la VIP:
 
 ```bash
 ssh alumne@192.168.0.110
@@ -21,10 +21,9 @@ Al `srv-primari`:
 sudo systemctl stop keepalived
 ```
 
-## Repetir les proves
+## Verificació del failover
 
-!!! success "Resultat esperat"
-    Tots els serveis haurien de continuar responent a través de la `VIP`, ara servits pel `srv-secundari`.
+Un cop aturat el primari, repetir les mateixes proves. Tots els serveis han de continuar responent a través de la VIP, ara servits pel `srv-secundari`.
 
 ```bash
 ssh alumne@192.168.0.110
@@ -35,18 +34,7 @@ mysql -h 192.168.0.110 -u root -p
 dig @192.168.0.110 lab.local
 ```
 
-## Resum mínim defensable
-
-!!! tip "Mínim recomanat"
-    1. `keepalived` amb `VIP` funcional
-    2. `SSH` i `HTTP` responent per la `VIP`
-    3. `FTP` i `Samba` sincronitzats amb `rsync`
-    4. `DNS` amb `master/slave`
-    5. `MariaDB` amb rèplica simple
-
-    Amb això queda molt millor explicat i no sembla que `keepalived` sigui només "la part del web".
-
-## Diagrama de la prova
+## Diagrama del failover
 
 ```mermaid
 graph TB

@@ -28,7 +28,7 @@ export TELEGRAM_CHAT_ID="el_teu_chat_id"
 
 ## Amb Docker
 
-Si detecta un fitxer `telegram_config.json` a la carpeta d'execució, el munta automàticament al contenidor:
+Si detecta `telegram_config.json` a la carpeta d'execució, el munta automàticament al contenidor:
 
 ```bash
 docker run -it --rm --network host \
@@ -37,5 +37,4 @@ docker run -it --rm --network host \
     auditoria_pendrive
 ```
 
-!!! warning "Seguretat"
-    Mai publiqueu el token del bot ni el chat_id en repositoris públics. Afegiu `telegram_config.json` al `.gitignore`.
+Mai publicar el token del bot ni el chat_id en repositoris públics. Afegir `telegram_config.json` al `.gitignore`.

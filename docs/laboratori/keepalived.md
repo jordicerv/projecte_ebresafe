@@ -1,19 +1,12 @@
 # Keepalived i Failover
 
-Aquesta és la part clau de la pràctica d'alta disponibilitat.
+## Interfície de xarxa
 
-## Comprovar la interfície de xarxa
-
-Als dos servidors:
+Als dos servidors, comprovar el nom de la interfície (normalment `ens18` o `eth0`):
 
 ```bash
 ip a
 ```
-
-Apunta el nom de la interfície. En molts casos serà `ens18` o `eth0`.
-
-!!! note "Nota"
-    En els exemples d'aquesta guia es fa servir `ens18`. Si la teva és una altra, canvia-la.
 
 ## Configuració del primari
 
@@ -87,11 +80,9 @@ vrrp_instance VI_1 {
 }
 ```
 
-!!! info "Diferències clau"
-    - **Primari:** `state MASTER`, `priority 150`
-    - **Secundari:** `state BACKUP`, `priority 100`
+**Diferències clau:** el primari té `state MASTER` i `priority 150`, el secundari `state BACKUP` i `priority 100`.
 
-## Reiniciar el servei
+## Activar el servei
 
 Als dos nodes:
 
@@ -101,17 +92,13 @@ sudo systemctl restart keepalived
 sudo systemctl status keepalived
 ```
 
-## Comprovació de la IP virtual
+## Comprovació de la VIP
 
-Primer comprova al primari:
+Al primari:
 
 ```bash
 ip a | grep 192.168.0.110
 ```
-
-Ha d'aparèixer la IP virtual al `srv-primari`.
-
-Després prova l'accés:
 
 ```bash
 curl http://192.168.0.110
@@ -121,26 +108,19 @@ curl http://192.168.0.110
 
 ## Prova de failover
 
-!!! success "Test important"
-    Aquest és el test que donarà més joc a la presentació.
-
 ### 1. Amb el primari actiu
 
 ```bash
 curl http://192.168.0.110
 ```
 
-Hauries de veure la pàgina del `srv-primari`.
-
-### 2. Simular caiguda del primari
-
-Atura `keepalived` al primari:
+### 2. Simular caiguda
 
 ```bash
 sudo systemctl stop keepalived
 ```
 
-O bé atura Apache:
+O bé:
 
 ```bash
 sudo systemctl stop apache2
@@ -148,21 +128,13 @@ sudo systemctl stop apache2
 
 ### 3. Comprovar el secundari
 
-Al `srv-secundari`:
-
 ```bash
 ip a | grep 192.168.0.110
 ```
 
-Ara la IP virtual hauria d'haver passat al segon node.
-
-Des d'una altra màquina:
-
 ```bash
 curl http://192.168.0.110
 ```
-
-Hauries de veure la pàgina del `srv-secundari`.
 
 ![Failover comprovat](../assets/img/lab/image-14.png)
 
@@ -172,6 +144,8 @@ Hauries de veure la pàgina del `srv-secundari`.
 sudo systemctl start apache2
 sudo systemctl start keepalived
 ```
+
+### Diagrama del failover
 
 ```mermaid
 sequenceDiagram

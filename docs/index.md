@@ -1,18 +1,16 @@
 # :shield: EbreSafe — Projecte Intermodular
 
-Benvingut/da a la documentació del **Projecte Intermodular EbreSafe**.
+Documentació del **Projecte Intermodular EbreSafe**.
 
-!!! tip "Presentació del projecte"
-    :material-presentation-play: **Presentació Canva:** [https://canva.link/33z4cxcx4a0d4n1](https://canva.link/33z4cxcx4a0d4n1)
+:material-presentation-play: **Presentació Canva:** [canva.link/33z4cxcx4a0d4n1](https://canva.link/33z4cxcx4a0d4n1)
 
-    :material-web: **Documentació publicada:** [https://jordicerv.github.io/projecte_ebresafe/](https://jordicerv.github.io/projecte_ebresafe/)
+:material-web: **Documentació publicada:** [jordicerv.github.io/projecte_ebresafe](https://jordicerv.github.io/projecte_ebresafe/)
 
 ---
 
 ## Què és EbreSafe?
 
-!!! info "Resum del projecte"
-    EbreSafe és una **eina multi-protocol d'auditoria de seguretat de xarxa** amb interfície GUI (tkinter) i mode CLI per a Docker. El projecte inclou el muntatge d'un **laboratori amb alta disponibilitat** sobre Proxmox per simular entorns reals d'auditoria.
+EbreSafe és una **eina multi-protocol d'auditoria de seguretat de xarxa** amb interfície GUI (tkinter) i mode CLI per a Docker. El projecte inclou un **laboratori amb alta disponibilitat** sobre Proxmox per simular entorns reals d'auditoria.
 
 ## Continguts
 
@@ -22,7 +20,7 @@ Benvingut/da a la documentació del **Projecte Intermodular EbreSafe**.
 
     ---
 
-    Descripció general, objectius, equip de treball i enllaços a la presentació.
+    Descripció general, objectius, equip de treball i enllaços.
 
     [:octicons-arrow-right-24: Veure presentació](presentacio/descripcio.md)
 
@@ -30,7 +28,7 @@ Benvingut/da a la documentació del **Projecte Intermodular EbreSafe**.
 
     ---
 
-    Muntatge del laboratori ASIX amb dos servidors Ubuntu, serveis vulnerables i alta disponibilitat bàsica.
+    Muntatge del laboratori amb dos servidors Ubuntu, serveis vulnerables i alta disponibilitat.
 
     [:octicons-arrow-right-24: Veure laboratori](laboratori/muntatge.md)
 
@@ -38,7 +36,7 @@ Benvingut/da a la documentació del **Projecte Intermodular EbreSafe**.
 
     ---
 
-    Configuració d'alta disponibilitat per a SSH, HTTP, MariaDB, DNS, FTP i Samba amb keepalived.
+    Configuració d'HA per a SSH, HTTP, MariaDB, DNS, FTP i Samba amb keepalived.
 
     [:octicons-arrow-right-24: Veure HA](ha/index.md)
 
@@ -46,7 +44,7 @@ Benvingut/da a la documentació del **Projecte Intermodular EbreSafe**.
 
     ---
 
-    Documentació de l'eina d'auditoria de xarxa: escaneig de ports, SSH, SMB, OSINT i Telegram.
+    Escaneig de ports, SSH, SMB, OSINT i Telegram.
 
     [:octicons-arrow-right-24: Veure eina](auditoria/descripcio.md)
 
@@ -54,7 +52,7 @@ Benvingut/da a la documentació del **Projecte Intermodular EbreSafe**.
 
 ---
 
-## Escenari del projecte
+## Escenari
 
 ```mermaid
 graph TB

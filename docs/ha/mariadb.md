@@ -1,17 +1,12 @@
 # HA de MariaDB
 
-!!! important "Replicació necessària"
-    MariaDB no només depèn de la `VIP`, sinó també de la **replicació de dades** entre nodes.
+MariaDB requereix **replicació de dades** entre nodes, no només la VIP.
 
 ## 1. Configurar el srv-primari
-
-Edita:
 
 ```bash
 sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
 ```
-
-Deixa com a mínim:
 
 ```conf
 bind-address = 0.0.0.0
@@ -20,8 +15,6 @@ log_bin = /var/log/mysql/mysql-bin.log
 ```
 
 ![Configuració MariaDB primari](../assets/img/lab/image-19.png)
-
-Reinicia:
 
 ```bash
 sudo systemctl restart mariadb
@@ -44,8 +37,7 @@ SHOW MASTER STATUS;
 
 ![Usuari de replicació](../assets/img/lab/image-20.png)
 
-!!! warning "Important"
-    Apunta els valors de `File` i `Position` que retorna `SHOW MASTER STATUS`. Els necessitaràs al pas 4.
+Apuntar els valors de `File` i `Position` que retorna `SHOW MASTER STATUS` per al pas 4.
 
 ## 3. Configurar el srv-secundari
 
@@ -59,8 +51,6 @@ server-id = 2
 ```
 
 ![Configuració MariaDB secundari](../assets/img/lab/image-21.png)
-
-Reinicia:
 
 ```bash
 sudo systemctl restart mariadb
@@ -84,20 +74,17 @@ START SLAVE;
 SHOW SLAVE STATUS\G
 ```
 
-Ha de sortir:
-
-- `Slave_IO_Running: Yes`
-- `Slave_SQL_Running: Yes`
+Ha de sortir `Slave_IO_Running: Yes` i `Slave_SQL_Running: Yes`.
 
 ![Estat de la rèplica](../assets/img/lab/image-22.png)
 
 ## 5. Comprovació
 
-Per comprovar que funciona correctament, creem una base de dades de prova al primari:
+Creació d'una base de dades de prova al primari:
 
 ![Creació DB de prova](../assets/img/lab/image-23.png)
 
-I també apareix a la BD secundària automàticament:
+Apareix automàticament al secundari:
 
 ![Rèplica verificada](../assets/img/lab/image-24.png)
 

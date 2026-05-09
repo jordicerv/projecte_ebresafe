@@ -2,8 +2,6 @@
 
 ## Instal·lació als dos servidors
 
-Executa això tant al primari com al secundari:
-
 ```bash
 sudo apt update
 sudo apt install -y openssh-server apache2 mariadb-server keepalived
@@ -11,7 +9,7 @@ sudo apt install -y openssh-server apache2 mariadb-server keepalived
 
 ![Instal·lació de serveis](../assets/img/lab/image-4.png)
 
-Comprova serveis:
+Activar i comprovar serveis:
 
 ```bash
 sudo systemctl enable ssh apache2 mariadb
@@ -23,9 +21,9 @@ sudo systemctl status mariadb
 
 ## Configuració comuna
 
-### 1. Crear usuari de laboratori
+### 1. Usuari de laboratori
 
-Fes-ho als dos servidors:
+Als dos servidors:
 
 ```bash
 sudo adduser auditor
@@ -34,7 +32,7 @@ echo 'auditor:auditor123' | sudo chpasswd
 
 ![Creació de l'usuari auditor](../assets/img/lab/image-5.png)
 
-### 2. Crear una web igual als dos servidors
+### 2. Web de prova
 
 === "srv-primari"
 
@@ -58,12 +56,11 @@ echo 'auditor:auditor123' | sudo chpasswd
 
 ![Web secundari](../assets/img/lab/image-7.png)
 
-!!! tip "Consell"
-    No cal que el text sigui idèntic. De fet, va bé que sigui diferent perquè així es pot demostrar visualment el failover.
+El text diferent entre nodes permet demostrar visualment el failover.
 
-### 3. Crear una base de dades de prova
+### 3. Base de dades de prova
 
-Fes-ho als dos servidors:
+Als dos servidors:
 
 ```bash
 sudo mysql

@@ -1,12 +1,6 @@
 # HA de Samba
 
-Samba també es configura en **actiu-passiu**:
-
-- Mateix share
-- Mateix camí
-- Mateixa configuració
-- Dades sincronitzades
-- Accés per la `VIP`
+Samba en mode **actiu-passiu**: mateix share, configuració i dades sincronitzades, amb accés per la VIP.
 
 ## 1. Comprovar servei
 
@@ -18,7 +12,7 @@ sudo systemctl status smbd
 
 ## 2. Sincronitzar directori del share
 
-Al `srv-primari`, si el share és `/srv/samba/public`:
+Al `srv-primari`:
 
 ```bash
 sudo rsync -av /srv/samba/public/ alumne@192.168.0.101:/srv/samba/public/
@@ -43,8 +37,6 @@ sudo systemctl restart smbd nmbd
 ```
 
 ## 5. Provar per la VIP
-
-Des del PC:
 
 ```bash
 smbclient -N //192.168.0.110/public -c "ls"

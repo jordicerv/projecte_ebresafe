@@ -2,10 +2,9 @@
 
 ## Eina d'Auditoria de Xarxa
 
-!!! abstract "Resum"
-    Eina multi-protocol d'auditoria de seguretat de xarxa amb interfície GUI (tkinter) i mode CLI per a Docker.
+Eina multi-protocol d'auditoria de seguretat de xarxa amb interfície GUI (tkinter) i mode CLI per a Docker.
 
-Aquesta eina d'auditoria de seguretat de xarxa permet realitzar:
+Funcionalitats:
 
 - **Descobriment d'hosts** a la xarxa local
 - **Escaneig de ports** amb detecció de versions
@@ -15,7 +14,7 @@ Aquesta eina d'auditoria de seguretat de xarxa permet realitzar:
 - **Recollida d'informació OSINT** amb theHarvester
 - **Integració amb Telegram** per a enviament d'informes
 
-Disposa d'una interfície gràfica basada en tkinter per a ús local i un mode CLI interactiu optimitzat per a execució dins de contenidors Docker, fent-la **completament portable**.
+Disposa d'una interfície gràfica basada en tkinter per a ús local i un mode CLI interactiu per a Docker, fent-la **completament portable**.
 
 ## Requisits del Sistema
 

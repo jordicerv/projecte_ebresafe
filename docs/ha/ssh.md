@@ -1,13 +1,8 @@
 # HA de SSH
 
-L'alta disponibilitat d'SSH no és de dades, sinó **d'accés**.
+L'alta disponibilitat d'SSH és d'**accés**: `sshd` actiu als dos nodes amb configuració semblant, connexió sempre a la VIP.
 
-!!! info "Idea"
-    - `sshd` actiu als dos nodes
-    - Configuració semblant
-    - Connexió sempre a la `VIP`
-
-## 1. Revisar que SSH estigui actiu
+## 1. Verificar SSH actiu
 
 Als dos servidors:
 
@@ -17,7 +12,7 @@ sudo systemctl status ssh
 
 ## 2. Sincronitzar configuració
 
-Al `srv-primari`, sincronitzar si cal:
+Al `srv-primari`:
 
 ```bash
 sudo rsync -av /etc/ssh/ root@192.168.0.101:/etc/ssh/
@@ -35,8 +30,6 @@ sudo systemctl restart ssh
 
 ## 4. Provar per la VIP
 
-Des del PC:
-
 ```bash
 ssh alumne@192.168.0.110
 ```
@@ -45,11 +38,8 @@ ssh alumne@192.168.0.110
 
 ## 5. Comprovar failover
 
-Apaguem el primari:
+Aturant el primari, el secundari agafa la VIP i la connexió SSH continua funcionant:
 
 ![Failover SSH](../assets/img/lab/image-18.png)
 
-Com podem observar, el secundari agafa la IP del primari i ens podem connectar.
-
-!!! warning "Nota important"
-    Si els dos servidors tenen claus host diferents, quan hi hagi failover pot sortir l'avís de canvi d'identitat SSH. Això no vol dir que estigui malament, però cal saber-ho explicar.
+Si els dos servidors tenen claus host diferents, durant el failover pot sortir un avís de canvi d'identitat SSH. Això és normal i no indica cap error.

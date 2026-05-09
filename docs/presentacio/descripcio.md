@@ -2,8 +2,7 @@
 
 ## Introducció
 
-!!! abstract "EbreSafe — Eina d'Auditoria de Seguretat de Xarxa"
-    EbreSafe és una eina multi-protocol d'auditoria de seguretat de xarxa amb interfície GUI (tkinter) i mode CLI per a Docker. Permet realitzar descobriment d'hosts, escaneig de ports, anàlisi de vulnerabilitats, auditoria SSH, enumeració SMB i recollida d'informació OSINT.
+EbreSafe és una eina multi-protocol d'auditoria de seguretat de xarxa amb interfície GUI (tkinter) i mode CLI per a Docker. Permet realitzar descobriment d'hosts, escaneig de ports, anàlisi de vulnerabilitats, auditoria SSH, enumeració SMB i recollida d'informació OSINT.
 
 ## Context
 
@@ -35,4 +34,4 @@ EbreSafe proporciona:
 - :material-send: **Integració amb Telegram** per enviar informes
 - :material-docker: **Portabilitat total** gràcies a Docker i distribució USB
 
-Tot això complementat amb un **laboratori d'alta disponibilitat** sobre Proxmox amb dos servidors Ubuntu.
+Tot complementat amb un **laboratori d'alta disponibilitat** sobre Proxmox amb dos servidors Ubuntu.

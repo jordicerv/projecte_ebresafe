@@ -1,20 +1,14 @@
 # HA de HTTP
 
-!!! success "Ja configurat"
-    Aquesta part ja està feta amb keepalived. Aquí queda resumida per coherència.
+L'alta disponibilitat del servei web està garantida per `keepalived`: mateixa web als dos nodes amb accés a través de la VIP.
 
-## Idea
+- Si cau el primari, el secundari continua responent a `http://192.168.0.110`
+- El contingut web es manté sincronitzat amb `rsync`
 
-- Mateixa web als dos nodes
-- Accés per `http://192.168.0.110`
-- Si cau el primari, el secundari continua responent
-
-## Comprovació ràpida
-
-Des del PC:
+Comprovació:
 
 ```bash
 curl http://192.168.0.110
 ```
 
-El failover ja ha estat provat a la secció de [Keepalived](../laboratori/keepalived.md).
+El failover del servei web està documentat i provat a la secció de [Keepalived](../laboratori/keepalived.md).

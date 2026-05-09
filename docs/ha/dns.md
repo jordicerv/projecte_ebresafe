@@ -1,11 +1,8 @@
 # HA de DNS
 
-!!! tip "Estratègia"
-    L'alta disponibilitat del DNS es defensa amb redundància **master/slave**, no només amb `keepalived`.
+L'alta disponibilitat del DNS es basa en redundància **master/slave** entre els dos servidors.
 
-## 1. Configurar zona mestra al srv-primari
-
-Edita:
+## 1. Zona mestra al srv-primari
 
 ```bash
 sudo nano /etc/bind/named.conf.local
@@ -21,14 +18,12 @@ zone "lab.local" {
 
 ![Zona mestra](../assets/img/lab/image-25.png)
 
-Crea o revisa la zona:
+Crear el fitxer de zona:
 
 ```bash
 sudo cp /etc/bind/db.local /etc/bind/db.lab.local
 sudo nano /etc/bind/db.lab.local
 ```
-
-Exemple:
 
 ```dns
 $TTL 604800
@@ -49,7 +44,7 @@ db   IN  A   192.168.0.110
 
 ![Fitxer de zona](../assets/img/lab/image-26.png)
 
-## 2. Configurar zona esclava al srv-secundari
+## 2. Zona esclava al srv-secundari
 
 ```bash
 sudo nano /etc/bind/named.conf.local
@@ -73,9 +68,7 @@ Als dos servidors:
 sudo systemctl restart bind9
 ```
 
-## 4. Provar
-
-Des del PC o des del `srv-secundari`:
+## 4. Verificació
 
 ```bash
 dig @192.168.0.100 lab.local AXFR
