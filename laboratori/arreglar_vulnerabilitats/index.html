@@ -12,13 +12,13 @@
         <meta name="author" content="Jordi Cervantes">
       
       
-        <link rel="canonical" href="https://jordicerv.github.io/projecte_ebresafe/laboratori/verificacio/">
+        <link rel="canonical" href="https://jordicerv.github.io/projecte_ebresafe/laboratori/arreglar_vulnerabilitats/">
       
       
-        <link rel="prev" href="../serveis_extra/">
+        <link rel="prev" href="../vulnerabilitats/">
       
       
-        <link rel="next" href="../../ha/">
+        <link rel="next" href="../keepalived/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Verificació - EbreSafe - Projecte Intermodular</title>
+        <title>Correcció de vulnerabilitats - EbreSafe - Projecte Intermodular</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#verificacio-del-laboratori" class="md-skip">
+        <a href="#revisio-i-correccio-de-vulnerabilitats" class="md-skip">
           Salta el contingut
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Verificació
+              Correcció de vulnerabilitats
             
           </span>
         </div>
@@ -768,10 +768,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../arreglar_vulnerabilitats/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Correcció de vulnerabilitats
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -787,6 +814,203 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introducció
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-resultats-de-lauditoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Resultats de l'auditoria
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Resultats de l&#39;auditoria">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-vulnerabilitats-al-port-22-ssh-i-port-3306-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Vulnerabilitats al port 22 (SSH) i port 3306 (MySQL)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-vulnerabilitats-al-port-80-http-i-port-139-netbiossmb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Vulnerabilitats al port 80 (HTTP) i port 139 (NetBIOS/SMB)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-vulnerabilitats-al-port-445-smb-i-problemes-de-configuracio-httpsmb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Vulnerabilitats al port 445 (SMB) i problemes de configuració HTTP/SMB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-vulnerabilitats-de-criticitat-mitjana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. Vulnerabilitats de criticitat mitjana
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-correccions-aplicades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Correccions aplicades
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Correccions aplicades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-actualitzacio-del-sistema-i-dels-serveis-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Actualització del sistema i dels serveis (SSH)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-restriccio-del-port-de-mysql-bind-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Restricció del port de MySQL (bind-address)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-desactivacio-del-directory-listing-a-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Desactivació del directory listing a Apache
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-eliminacio-del-fitxer-de-backup-exposat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4. Eliminació del fitxer de backup exposat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-afegir-capcaleres-de-seguretat-http-a-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5. Afegir capçaleres de seguretat HTTP a Apache
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-ocultacio-de-la-versio-dapache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6. Ocultació de la versió d'Apache
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-securitzacio-del-servei-smb-samba" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7. Securització del servei SMB (Samba)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-vulnerabilitats-no-corregides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Vulnerabilitats no corregides
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -852,37 +1076,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Verificació
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../verificacio/" class="md-nav__link">
         
   
   
@@ -898,92 +1095,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Taula de continguts
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#escaneig-dels-nodes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Escaneig dels nodes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#escaneig-de-la-ip-virtual" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Escaneig de la IP virtual
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#proves-manuals" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Proves manuals
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deteccions-esperades-de-leina" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Deteccions esperades de l'eina
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#evidencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Evidències
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#checklist" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1593,10 +1704,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#escaneig-dels-nodes" class="md-nav__link">
+  <a href="#1-introduccio" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Escaneig dels nodes
+        1. Introducció
       
     </span>
   </a>
@@ -1604,54 +1715,165 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#escaneig-de-la-ip-virtual" class="md-nav__link">
+  <a href="#2-resultats-de-lauditoria" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Escaneig de la IP virtual
+        2. Resultats de l'auditoria
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Resultats de l&#39;auditoria">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-vulnerabilitats-al-port-22-ssh-i-port-3306-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Vulnerabilitats al port 22 (SSH) i port 3306 (MySQL)
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#proves-manuals" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#22-vulnerabilitats-al-port-80-http-i-port-139-netbiossmb" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Proves manuals
+        2.2. Vulnerabilitats al port 80 (HTTP) i port 139 (NetBIOS/SMB)
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#deteccions-esperades-de-leina" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#23-vulnerabilitats-al-port-445-smb-i-problemes-de-configuracio-httpsmb" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Deteccions esperades de l'eina
+        2.3. Vulnerabilitats al port 445 (SMB) i problemes de configuració HTTP/SMB
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#evidencies" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#24-vulnerabilitats-de-criticitat-mitjana" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Evidències
+        2.4. Vulnerabilitats de criticitat mitjana
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#checklist" class="md-nav__link">
+  <a href="#3-correccions-aplicades" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checklist
+        3. Correccions aplicades
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Correccions aplicades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-actualitzacio-del-sistema-i-dels-serveis-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Actualització del sistema i dels serveis (SSH)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-restriccio-del-port-de-mysql-bind-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Restricció del port de MySQL (bind-address)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-desactivacio-del-directory-listing-a-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Desactivació del directory listing a Apache
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-eliminacio-del-fitxer-de-backup-exposat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4. Eliminació del fitxer de backup exposat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-afegir-capcaleres-de-seguretat-http-a-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5. Afegir capçaleres de seguretat HTTP a Apache
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-ocultacio-de-la-versio-dapache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6. Ocultació de la versió d'Apache
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-securitzacio-del-servei-smb-samba" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7. Securització del servei SMB (Samba)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-vulnerabilitats-no-corregides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Vulnerabilitats no corregides
       
     </span>
   </a>
@@ -1678,106 +1900,130 @@
   
 
 
-<h1 id="verificacio-del-laboratori">Verificació del Laboratori<a class="headerlink" href="#verificacio-del-laboratori" title="Permanent link">&para;</a></h1>
-<h2 id="escaneig-dels-nodes">Escaneig dels nodes<a class="headerlink" href="#escaneig-dels-nodes" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>nmap<span class="w"> </span>-sV<span class="w"> </span><span class="m">192</span>.168.0.100
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>nmap<span class="w"> </span>-sV<span class="w"> </span><span class="m">192</span>.168.0.101
-</code></pre></div>
-<h2 id="escaneig-de-la-ip-virtual">Escaneig de la IP virtual<a class="headerlink" href="#escaneig-de-la-ip-virtual" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>nmap<span class="w"> </span>-sV<span class="w"> </span><span class="m">192</span>.168.0.110
-</code></pre></div>
-<h2 id="proves-manuals">Proves manuals<a class="headerlink" href="#proves-manuals" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl<span class="w"> </span>http://192.168.0.100
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>curl<span class="w"> </span>http://192.168.0.101
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>curl<span class="w"> </span>http://192.168.0.110
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>curl<span class="w"> </span>http://192.168.0.110/backup.sql.bak
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>curl<span class="w"> </span>http://192.168.0.110/uploads/
-</code></pre></div>
-<h2 id="deteccions-esperades-de-leina">Deteccions esperades de l'eina<a class="headerlink" href="#deteccions-esperades-de-leina" title="Permanent link">&para;</a></h2>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ports oberts</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Servei detectat per cada port</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> IP virtual activa</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Servei web redundant</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> SSH amb configuració dèbil</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Fitxers sensibles accessibles al web</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Directori web navegable</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> MariaDB amb accés remot</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> DNS amb transferència de zona oberta</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> FTP anònim</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Recurs Samba amb permisos insegurs</li>
+<h1 id="revisio-i-correccio-de-vulnerabilitats">Revisió i Correcció de Vulnerabilitats<a class="headerlink" href="#revisio-i-correccio-de-vulnerabilitats" title="Permanent link">&para;</a></h1>
+<h2 id="1-introduccio">1. Introducció<a class="headerlink" href="#1-introduccio" title="Permanent link">&para;</a></h2>
+<p>S'ha executat una eina d'auditoria pròpia sobre el servidor (<code>192.168.0.101</code>) per detectar vulnerabilitats en els serveis exposats. L'eina analitza els ports oberts, identifica CVEs conegudes associades a les versions dels serveis, i reporta problemes de configuració que podrien comprometre la seguretat del sistema.</p>
+<p>A continuació es documenten els resultats obtinguts i les accions correctives aplicades per mitigar les vulnerabilitats més crítiques.</p>
+<hr />
+<h2 id="2-resultats-de-lauditoria">2. Resultats de l'auditoria<a class="headerlink" href="#2-resultats-de-lauditoria" title="Permanent link">&para;</a></h2>
+<h3 id="21-vulnerabilitats-al-port-22-ssh-i-port-3306-mysql">2.1. Vulnerabilitats al port 22 (SSH) i port 3306 (MySQL)<a class="headerlink" href="#21-vulnerabilitats-al-port-22-ssh-i-port-3306-mysql" title="Permanent link">&para;</a></h3>
+<p><img alt="Vulnerabilitats detectades als ports SSH i MySQL" src="../../assets/img/lab/arreglar/image.png" /></p>
+<p>L'eina ha detectat un total de <strong>21 troballes</strong>. En primer lloc, al <strong>port 22 (SSH)</strong> s'han identificat <strong>12 CVEs</strong> associades a la versió d'OpenSSH instal·lada, amb puntuacions CVSS que van des de 3.6 fins a 8.1. Les més crítiques inclouen CVE-2026-35414, CVE-2026-35386, CVE-2026-35385 i CVE-2024-6387, totes amb CVSS 8.1.</p>
+<p>Al <strong>port 3306 (MySQL/MariaDB)</strong> s'han trobat <strong>254 CVEs</strong>, algunes amb la puntuació màxima de CVSS 10.0 (CVE-2012-2750) i altres molt crítiques com CVE-2016-9843 (CVSS 9.8) i CVE-2012-3163 (CVSS 9.0). Aquestes vulnerabilitats estan relacionades amb la versió del motor de base de dades.</p>
+<h3 id="22-vulnerabilitats-al-port-80-http-i-port-139-netbiossmb">2.2. Vulnerabilitats al port 80 (HTTP) i port 139 (NetBIOS/SMB)<a class="headerlink" href="#22-vulnerabilitats-al-port-80-http-i-port-139-netbiossmb" title="Permanent link">&para;</a></h3>
+<p><img alt="Vulnerabilitats detectades als ports HTTP i NetBIOS" src="../../assets/img/lab/arreglar/image-1.png" /></p>
+<p>Al <strong>port 80 (HTTP/Apache)</strong> s'han detectat <strong>35 CVEs</strong> amb puntuacions molt elevades. Destaquen CVE-2026-28780 i CVE-2024-38476 (CVSS 9.8), i CVE-2025-23048 i CVE-2024-40898 (CVSS 9.1). Aquestes vulnerabilitats corresponen a la versió d'Apache instal·lada al servidor.</p>
+<p>Al <strong>port 139 (NetBIOS/SMB)</strong> s'han identificat <strong>79 CVEs</strong>, incloent CVE-2020-1472 i CVE-2017-7494 amb la puntuació màxima de CVSS 10.0. Són vulnerabilitats associades a la versió del servei Samba.</p>
+<h3 id="23-vulnerabilitats-al-port-445-smb-i-problemes-de-configuracio-httpsmb">2.3. Vulnerabilitats al port 445 (SMB) i problemes de configuració HTTP/SMB<a class="headerlink" href="#23-vulnerabilitats-al-port-445-smb-i-problemes-de-configuracio-httpsmb" title="Permanent link">&para;</a></h3>
+<p><img alt="Vulnerabilitats al port 445 i problemes de configuració" src="../../assets/img/lab/arreglar/image-2.png" /></p>
+<p>Al <strong>port 445 (SMB)</strong> es repeteixen les mateixes <strong>79 CVEs</strong> que al port 139, ja que ambdós ports donen servei al protocol SMB amb la mateixa versió de Samba.</p>
+<p>A més de les CVEs, l'eina ha detectat diversos <strong>problemes de configuració</strong>:</p>
+<ul>
+<li><strong>Directory listing actiu a <code>/uploads/</code></strong>: El directori <code>/uploads/</code> del servidor web mostra un índex navegable, cosa que permet a qualsevol atacant llistar i descarregar els fitxers que hi ha.</li>
+<li><strong>Fitxer sensible exposat (<code>/backup.sql.bak</code>)</strong>: S'ha trobat un fitxer de còpia de seguretat de la base de dades accessible públicament, que respon amb codi 200 a <code>http://192.168.0.101/backup.sql.bak</code>.</li>
+<li><strong>Accés anònim al recurs compartit <code>public</code> (SMB)</strong>: El recurs compartit permet executar comandes com <code>ls</code> sense autenticació.</li>
+<li><strong>Enumeració SMB anònima permesa</strong>: Es poden llistar els recursos compartits (<code>print$</code>, <code>public</code>, <code>IPC$</code>, <code>SMB1</code>) sense necessitat d'autenticar-se.</li>
 </ul>
-<h2 id="evidencies">Evidències<a class="headerlink" href="#evidencies" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Servei</th>
-<th>Node</th>
-<th>Vulnerabilitat</th>
-<th>Risc</th>
-<th>Recomanació</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SSH</td>
-<td>Tots dos</td>
-<td>PermitRootLogin yes</td>
-<td>Alt</td>
-<td>Desactivar login root</td>
-</tr>
-<tr>
-<td>Apache</td>
-<td>Tots dos</td>
-<td>Directory listing</td>
-<td>Mig</td>
-<td>Desactivar Indexes</td>
-</tr>
-<tr>
-<td>MariaDB</td>
-<td>Tots dos</td>
-<td>bind-address 0.0.0.0</td>
-<td>Alt</td>
-<td>Limitar a localhost</td>
-</tr>
-<tr>
-<td>DNS</td>
-<td>Secundari</td>
-<td>Transferència oberta</td>
-<td>Mig</td>
-<td>Restringir allow-transfer</td>
-</tr>
-<tr>
-<td>FTP</td>
-<td>Secundari</td>
-<td>Accés anònim</td>
-<td>Mig</td>
-<td>Desactivar anonymous</td>
-</tr>
-<tr>
-<td>Samba</td>
-<td>Secundari</td>
-<td>Permisos oberts</td>
-<td>Mig</td>
-<td>Requerir autenticació</td>
-</tr>
-</tbody>
-</table>
-<h2 id="checklist">Checklist<a class="headerlink" href="#checklist" title="Permanent link">&para;</a></h2>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>srv-primari</code> amb IP <code>192.168.0.100</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>srv-secundari</code> amb IP <code>192.168.0.101</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>keepalived</code> instal·lat als dos nodes</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> IP virtual <code>192.168.0.110</code> configurada</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>Apache</code> funcionant als dos nodes</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>MariaDB</code> funcionant als dos nodes</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Usuari <code>auditor</code> creat als dos nodes</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>PasswordAuthentication yes</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>PermitRootLogin yes</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Directori <code>/uploads/</code> navegable</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Fitxer <code>backup.sql.bak</code> accessible</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Prova de failover feta correctament</li>
+<h3 id="24-vulnerabilitats-de-criticitat-mitjana">2.4. Vulnerabilitats de criticitat mitjana<a class="headerlink" href="#24-vulnerabilitats-de-criticitat-mitjana" title="Permanent link">&para;</a></h3>
+<p><img alt="Vulnerabilitats de criticitat mitjana" src="../../assets/img/lab/arreglar/image-3.png" /></p>
+<p>L'eina també ha identificat vulnerabilitats de <strong>criticitat mitjana [MITJA]</strong>:</p>
+<ul>
+<li><strong>Divulgació de versió de BIND (port 53)</strong>: El servidor DNS respon amb la versió exacta del programari (<code>9.18.39-0ubuntu0.24.04.3-Ubuntu</code>), cosa que facilita la cerca de CVEs específiques per part d'un atacant.</li>
+<li><strong>Recursió DNS activada</strong>: El servidor DNS respon amb el flag RA activat, permetent que sigui utilitzat per a atacs de recursió.</li>
+<li><strong>Servei FTP sense xifrat (port 21)</strong>: El servei FTP transmet credencials en clar, cosa que el fa vulnerable a atacs de tipus man-in-the-middle.</li>
+<li><strong>Falta de capçaleres de seguretat HTTP (port 80)</strong>: No es retornen les capçaleres <code>Content-Security-Policy</code>, <code>Referrer-Policy</code>, <code>X-Content-Type-Options</code> ni <code>X-Frame-Options</code>, que protegeixen contra atacs XSS, clickjacking i injecció de contingut.</li>
 </ul>
+<hr />
+<h2 id="3-correccions-aplicades">3. Correccions aplicades<a class="headerlink" href="#3-correccions-aplicades" title="Permanent link">&para;</a></h2>
+<h3 id="31-actualitzacio-del-sistema-i-dels-serveis-ssh">3.1. Actualització del sistema i dels serveis (SSH)<a class="headerlink" href="#31-actualitzacio-del-sistema-i-dels-serveis-ssh" title="Permanent link">&para;</a></h3>
+<p><img alt="Actualització del sistema operatiu i OpenSSH" src="../../assets/img/lab/arreglar/image-4.png" /></p>
+<p>Per corregir les vulnerabilitats més crítiques del servei SSH, s'ha procedit a <strong>actualitzar el sistema operatiu i el paquet OpenSSH</strong> mitjançant les comandes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>openssh-server<span class="w"> </span>-y
+</code></pre></div>
+<p>Amb aquesta actualització s'apliquen els pegats de seguretat disponibles per a la versió d'OpenSSH, mitigant les CVEs reportades amb CVSS 8.1.</p>
+<p>Cal destacar que <strong>no s'ha modificat cap paràmetre de la configuració de SSH</strong> (com ara el fitxer <code>sshd_config</code>). S'ha pres la decisió de no endurir la configuració d'aquest servei per precaució, ja que ens feia por perdre la connectivitat remota i no poder tornar a connectar-nos al servidor.</p>
+<h3 id="32-restriccio-del-port-de-mysql-bind-address">3.2. Restricció del port de MySQL (bind-address)<a class="headerlink" href="#32-restriccio-del-port-de-mysql-bind-address" title="Permanent link">&para;</a></h3>
+<p><img alt="Configuració de bind-address a MariaDB" src="../../assets/img/lab/arreglar/image-5.png" /></p>
+<p>Per mitigar les <strong>254 CVEs</strong> associades al port 3306, s'ha configurat MariaDB perquè <strong>només escolti connexions locals</strong>. S'ha editat el fitxer <code>/etc/mysql/mariadb.conf.d/50-server.cnf</code> i s'ha establert:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>bind-address = 127.0.0.1
+</code></pre></div>
+<p>D'aquesta manera, el port 3306 deixa d'estar exposat a la xarxa, i les vulnerabilitats associades deixen de ser explotables remotament.</p>
+<h3 id="33-desactivacio-del-directory-listing-a-apache">3.3. Desactivació del directory listing a Apache<a class="headerlink" href="#33-desactivacio-del-directory-listing-a-apache" title="Permanent link">&para;</a></h3>
+<p><img alt="Desactivació del directory listing a la configuració d'Apache" src="../../assets/img/lab/arreglar/image-6.png" /></p>
+<p>Per resoldre el problema del <strong>directory listing actiu a <code>/uploads/</code></strong>, s'ha modificat la configuració d'Apache al bloc <code>&lt;Directory /var/www/&gt;</code>. S'ha eliminat l'opció <code>Indexes</code> de la directiva <code>Options</code>, deixant només <code>FollowSymLinks</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">&lt;Directory</span><span class="w"> </span><span class="s">/var/www/</span><span class="nt">&gt;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nb">Options</span><span class="w"> </span>FollowSymLinks
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nb">AllowOverride</span><span class="w"> </span><span class="k">None</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nb">Require</span><span class="w"> </span><span class="k">all</span><span class="w"> </span>granted
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nt">&lt;/Directory&gt;</span>
+</code></pre></div>
+<p>Això impedeix que Apache mostri el llistat de fitxers dels directoris que no tenen un fitxer <code>index.html</code> o <code>index.php</code>.</p>
+<h3 id="34-eliminacio-del-fitxer-de-backup-exposat">3.4. Eliminació del fitxer de backup exposat<a class="headerlink" href="#34-eliminacio-del-fitxer-de-backup-exposat" title="Permanent link">&para;</a></h3>
+<p><img alt="Eliminació del fitxer backup.sql.bak" src="../../assets/img/lab/arreglar/image-7.png" /></p>
+<p>S'ha eliminat el fitxer de còpia de seguretat que estava exposat públicament al document root del servidor web:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>rm<span class="w"> </span>/var/www/html/backup.sql.bak
+</code></pre></div>
+<p>D'aquesta manera, el fitxer ja no és accessible des del navegador i s'evita la filtració de dades sensibles de la base de dades.</p>
+<h3 id="35-afegir-capcaleres-de-seguretat-http-a-apache">3.5. Afegir capçaleres de seguretat HTTP a Apache<a class="headerlink" href="#35-afegir-capcaleres-de-seguretat-http-a-apache" title="Permanent link">&para;</a></h3>
+<p><img alt="Configuració de capçaleres de seguretat a Apache" src="../../assets/img/lab/arreglar/image-8.png" /></p>
+<p>Per resoldre la manca de capçaleres de seguretat HTTP, s'ha editat el fitxer de configuració del VirtualHost d'Apache (<code>/etc/apache2/sites-available/000-default.conf</code>) i s'hi han afegit les línies següents:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">Header</span><span class="w"> </span>always<span class="w"> </span>set<span class="w"> </span>X-Frame-Options<span class="w"> </span><span class="s2">&quot;SAMEORIGIN&quot;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">Header</span><span class="w"> </span>always<span class="w"> </span>set<span class="w"> </span>X-Content-Type-Options<span class="w"> </span><span class="s2">&quot;nosniff&quot;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">Header</span><span class="w"> </span>always<span class="w"> </span>set<span class="w"> </span>Referrer-Policy<span class="w"> </span><span class="s2">&quot;strict-origin-when-cross-origin&quot;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nb">Header</span><span class="w"> </span>always<span class="w"> </span>set<span class="w"> </span>Content-Security-Policy<span class="w"> </span><span class="s2">&quot;default-src &#39;self&#39;;&quot;</span>
+</code></pre></div>
+<p>Aquestes capçaleres protegeixen contra:</p>
+<ul>
+<li><strong>Clickjacking</strong> (<code>X-Frame-Options</code>): impedeix que la pàgina sigui carregada dins d'un iframe extern.</li>
+<li><strong>MIME-type sniffing</strong> (<code>X-Content-Type-Options</code>): evita que el navegador interpreti fitxers amb un tipus MIME incorrecte.</li>
+<li><strong>Filtració de referrer</strong> (<code>Referrer-Policy</code>): controla quina informació s'envia a la capçalera Referer.</li>
+<li><strong>Injecció de contingut i XSS</strong> (<code>Content-Security-Policy</code>): restringeix les fonts de contingut permeses.</li>
+</ul>
+<h3 id="36-ocultacio-de-la-versio-dapache">3.6. Ocultació de la versió d'Apache<a class="headerlink" href="#36-ocultacio-de-la-versio-dapache" title="Permanent link">&para;</a></h3>
+<p><img alt="Configuració de ServerTokens i ServerSignature" src="../../assets/img/lab/arreglar/image-9.png" /></p>
+<p>S'ha modificat la configuració global d'Apache per <strong>ocultar la versió del servidor</strong> en les respostes HTTP i les pàgines d'error. S'han establert els paràmetres:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">ServerTokens</span><span class="w"> </span>Prod
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">ServerSignature</span><span class="w"> </span><span class="k">Off</span>
+</code></pre></div>
+<p>Amb <code>ServerTokens Prod</code>, Apache només informa que el servidor és "Apache" sense revelar la versió ni els mòduls instal·lats. Amb <code>ServerSignature Off</code>, es desactiva la signatura que apareix a les pàgines d'error generades pel servidor.</p>
+<h3 id="37-securitzacio-del-servei-smb-samba">3.7. Securització del servei SMB (Samba)<a class="headerlink" href="#37-securitzacio-del-servei-smb-samba" title="Permanent link">&para;</a></h3>
+<p><img alt="Configuració global de Samba" src="../../assets/img/lab/arreglar/image-10.png" /></p>
+<p>Per corregir les vulnerabilitats d'<strong>accés anònim i enumeració SMB</strong>, s'ha modificat el fitxer de configuració de Samba (<code>/etc/samba/smb.conf</code>). A la secció <code>[global]</code> s'han aplicat els canvis següents:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">[global]</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="na">server min protocol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">SMB2</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="na">server max protocol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">SMB3</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="na">map to guest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">never</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="na">restrict anonymous</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">2</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="na">usershare allow guests</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">no</span>
+</code></pre></div>
+<ul>
+<li><strong><code>server min protocol = SMB2</code></strong>: Desactiva SMB1, un protocol antic amb vulnerabilitats conegudes (com EternalBlue).</li>
+<li><strong><code>server max protocol = SMB3</code></strong>: Limita el protocol màxim a SMB3 per garantir connexions xifrades.</li>
+<li><strong><code>map to guest = never</code></strong>: Impedeix que les connexions fallides es mapejin automàticament a l'usuari guest.</li>
+<li><strong><code>restrict anonymous = 2</code></strong>: Bloqueja completament l'accés anònim, impedint l'enumeració de recursos.</li>
+<li><strong><code>usershare allow guests = no</code></strong>: Desactiva l'accés de convidats als recursos compartits.</li>
+</ul>
+<p><img alt="Configuració del recurs compartit public" src="../../assets/img/lab/arreglar/image-11.png" /></p>
+<p>Addicionalment, s'ha modificat la configuració del recurs compartit <code>[public]</code> per restringir-ne l'accés:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">[public]</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/srv/samba/public</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="na">browseable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">no</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="na">read only</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">no</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="na">guest ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="na">force user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">nobody</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="na">valid users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">alumne</span>
+</code></pre></div>
+<p>S'ha establert <strong><code>browseable = no</code></strong> perquè el recurs no sigui visible en les enumeracions, i <strong><code>valid users = alumne</code></strong> per restringir l'accés només a l'usuari autoritzat.</p>
+<hr />
+<h2 id="4-vulnerabilitats-no-corregides">4. Vulnerabilitats no corregides<a class="headerlink" href="#4-vulnerabilitats-no-corregides" title="Permanent link">&para;</a></h2>
+<p>També s'han identificat altres vulnerabilitats dins del servidor, però són de <strong>criticitat baixa</strong> i tenen un <strong>impacte limitat</strong> sobre el projecte. Algunes d'elles inclouen:</p>
+<ul>
+<li>Divulgació de la versió de BIND al servidor DNS.</li>
+<li>Recursió DNS activada.</li>
+<li>Servei FTP sense xifrat exposat.</li>
+</ul>
+<p>Per aquest motiu, s'ha decidit <strong>no prioritzar-ne la correcció en aquesta fase</strong>, ja que la seva resolució és complexa i no aporta una millora rellevant en el context actual del projecte. Es recomana revisar-les en futures iteracions del procés de bastionament.</p>
 
 
 
