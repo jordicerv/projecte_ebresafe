@@ -36,6 +36,14 @@ EbreSafe és una **eina multi-protocol d'auditoria de seguretat de xarxa** amb i
 
     [:octicons-arrow-right-24: Veure HA](ha/index.md)
 
+- :material-shield-bug: **Correcció de Vulnerabilitats**
+
+    ---
+
+    Revisió dels resultats de l'auditoria i aplicació de correccions per mitigar les vulnerabilitats detectades.
+
+    [:octicons-arrow-right-24: Veure correccions](laboratori/arreglar_vulnerabilitats.md)
+
 - :material-bug: **Eina d'Auditoria**
 
     ---
