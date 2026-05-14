@@ -46,10 +46,10 @@ nav:
     - Muntatge del laboratori: laboratori/muntatge.md
     - Servidor secundari: laboratori/servidor_secundari.md
     - Serveis comuns: laboratori/serveis_comuns.md
-    - Vulnerabilitats: laboratori/vulnerabilitats.md
-    - Correcció de vulnerabilitats: laboratori/arreglar_vulnerabilitats.md
     - Keepalived i failover: laboratori/keepalived.md
     - Serveis extra: laboratori/serveis_extra.md
+    - Vulnerabilitats: laboratori/vulnerabilitats.md
+    - Correcció de vulnerabilitats: laboratori/arreglar_vulnerabilitats.md
     - Verificació: laboratori/verificacio.md
   - Alta Disponibilitat:
     - Visió general: ha/index.md

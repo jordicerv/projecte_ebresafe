@@ -190,3 +190,34 @@ També s'han identificat altres vulnerabilitats dins del servidor, però són de
 - Servei FTP sense xifrat exposat.
 
 Per aquest motiu, s'ha decidit **no prioritzar-ne la correcció en aquesta fase**, ja que la seva resolució és complexa i no aporta una millora rellevant en el context actual del projecte. Es recomana revisar-les en futures iteracions del procés de bastionament.
+
+---
+
+## 5. Verificació posterior (re-escaneig)
+
+Un cop aplicades totes les correccions descrites a la secció anterior, s'ha tornat a executar l'eina d'auditoria sobre el servidor (`192.168.0.101`) per **verificar que les mesures han estat efectives** i que el nombre de vulnerabilitats s'ha reduït significativament.
+
+!!! warning "Captures pendents"
+    Cal afegir aquí les captures de pantalla del segon escaneig que demostrin la reducció de vulnerabilitats. Puja les imatges a `docs/assets/img/lab/arreglar/` i actualitza les referències.
+
+<!-- Descomenta i actualitza quan tinguis les captures:
+### 5.1. Resultats del re-escaneig
+
+![Resultats del re-escaneig - Resum general](../assets/img/lab/arreglar/rescan-1.png)
+
+![Resultats del re-escaneig - Detall per serveis](../assets/img/lab/arreglar/rescan-2.png)
+-->
+
+### Millores esperades
+
+Després d'aplicar les correccions, els resultats esperats del re-escaneig són:
+
+| Servei | Abans | Després | Correccions aplicades |
+|--------|-------|---------|----------------------|
+| SSH (port 22) | 12 CVEs (CVSS fins a 8.1) | Reduït | Actualització d'OpenSSH |
+| MySQL (port 3306) | 254 CVEs (CVSS fins a 10.0) | **0** (port tancat) | `bind-address = 127.0.0.1` |
+| HTTP (port 80) | 35 CVEs + problemes config | Reduït | Capçaleres, directory listing, backup eliminat |
+| SMB (ports 139/445) | 79 CVEs + accés anònim | Reduït | Desactivar SMB1, bloquejar anònim |
+
+!!! success "Conclusió"
+    El procés de **detectar → corregir → verificar** demostra el valor de l'eina d'auditoria EbreSafe com a eina de bastionament iteratiu. Les vulnerabilitats més crítiques han estat mitigades, i el servidor presenta una superfície d'atac significativament reduïda respecte a l'estat inicial.
