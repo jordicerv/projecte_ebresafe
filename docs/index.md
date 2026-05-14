@@ -12,7 +12,7 @@ EbreSafe és una **eina multi-protocol d'auditoria de seguretat de xarxa** amb i
 
 <div class="grid cards" markdown>
 
--   :material-presentation: **Presentació**
+- :material-presentation: **Presentació**
 
     ---
 
@@ -20,7 +20,7 @@ EbreSafe és una **eina multi-protocol d'auditoria de seguretat de xarxa** amb i
 
     [:octicons-arrow-right-24: Veure presentació](presentacio/descripcio.md)
 
--   :material-server-network: **Laboratori**
+- :material-server-network: **Laboratori**
 
     ---
 
@@ -28,7 +28,7 @@ EbreSafe és una **eina multi-protocol d'auditoria de seguretat de xarxa** amb i
 
     [:octicons-arrow-right-24: Veure laboratori](laboratori/proxmox.md)
 
--   :material-shield-check: **Alta Disponibilitat**
+- :material-shield-check: **Alta Disponibilitat**
 
     ---
 
@@ -36,7 +36,7 @@ EbreSafe és una **eina multi-protocol d'auditoria de seguretat de xarxa** amb i
 
     [:octicons-arrow-right-24: Veure HA](ha/index.md)
 
--   :material-bug: **Eina d'Auditoria**
+- :material-bug: **Eina d'Auditoria**
 
     ---
 
@@ -72,7 +72,7 @@ graph TB
 
 | Recurs | Enllaç |
 |--------|--------|
-| :material-presentation-play: Presentació Canva | [canva.link/33z4cxcx4a0d4n1](https://canva.link/33z4cxcx4a0d4n1) |
+| :material-presentation-play: Presentació Canva | [canva.link/j1zessxf4730u5n](https://canva.link/j1zessxf4730u5n) |
 | :material-web: Documentació GitHub Pages | [jordicerv.github.io/projecte_ebresafe](https://jordicerv.github.io/projecte_ebresafe/) |
 | :material-github: Repositori GitHub | [github.com/jordicerv/projecte_ebresafe](https://github.com/jordicerv/projecte_ebresafe) |
 | :material-trello: KanbanFlow | [kanbanflow.com/board/eHnakJ4](https://kanbanflow.com/board/eHnakJ4) |

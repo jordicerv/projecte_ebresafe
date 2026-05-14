@@ -47,6 +47,7 @@ nav:
     - Servidor secundari: laboratori/servidor_secundari.md
     - Serveis comuns: laboratori/serveis_comuns.md
     - Vulnerabilitats: laboratori/vulnerabilitats.md
+    - Correcció de vulnerabilitats: laboratori/arreglar_vulnerabilitats.md
     - Keepalived i failover: laboratori/keepalived.md
     - Serveis extra: laboratori/serveis_extra.md
     - Verificació: laboratori/verificacio.md
