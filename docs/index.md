@@ -52,6 +52,14 @@ EbreSafe és una **eina multi-protocol d'auditoria de seguretat de xarxa** amb i
 
     [:octicons-arrow-right-24: Veure correccions](laboratori/arreglar_vulnerabilitats.md)
 
+- :material-web: **Landing Page**
+
+    ---
+
+    Pàgina web de presentació d'EbreSafe amb els serveis de ciberseguretat i pentesting.
+
+    [:octicons-arrow-right-24: Veure Landing Page](https://jobecoo.github.io/projecte/landing_page/)
+
 </div>
 
 ---
@@ -84,3 +92,4 @@ graph TB
 | :material-web: Documentació GitHub Pages | [jordicerv.github.io/projecte_ebresafe](https://jordicerv.github.io/projecte_ebresafe/) |
 | :material-github: Repositori GitHub | [github.com/jordicerv/projecte_ebresafe](https://github.com/jordicerv/projecte_ebresafe) |
 | :material-trello: KanbanFlow | [kanbanflow.com/board/eHnakJ4](https://kanbanflow.com/board/eHnakJ4) |
+| :material-web: Landing Page | [jobecoo.github.io/projecte/landing_page](https://jobecoo.github.io/projecte/landing_page/) |
