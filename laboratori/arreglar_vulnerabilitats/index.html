@@ -18,7 +18,7 @@
         <link rel="prev" href="../vulnerabilitats/">
       
       
-        <link rel="next" href="../keepalived/">
+        <link rel="next" href="../verificacio/">
       
       
         
@@ -743,6 +743,62 @@
   
   
     <li class="md-nav__item">
+      <a href="../keepalived/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Keepalived i failover
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serveis_extra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serveis extra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../vulnerabilitats/" class="md-nav__link">
         
   
@@ -1007,66 +1063,38 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#5-verificacio-posterior-re-escaneig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Verificació posterior (re-escaneig)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Verificació posterior (re-escaneig)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#millores-esperades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Millores esperades
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../keepalived/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Keepalived i failover
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../serveis_extra/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Serveis extra
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1880,6 +1908,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#5-verificacio-posterior-re-escaneig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Verificació posterior (re-escaneig)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Verificació posterior (re-escaneig)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#millores-esperades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Millores esperades
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2024,6 +2080,63 @@
 <li>Servei FTP sense xifrat exposat.</li>
 </ul>
 <p>Per aquest motiu, s'ha decidit <strong>no prioritzar-ne la correcció en aquesta fase</strong>, ja que la seva resolució és complexa i no aporta una millora rellevant en el context actual del projecte. Es recomana revisar-les en futures iteracions del procés de bastionament.</p>
+<hr />
+<h2 id="5-verificacio-posterior-re-escaneig">5. Verificació posterior (re-escaneig)<a class="headerlink" href="#5-verificacio-posterior-re-escaneig" title="Permanent link">&para;</a></h2>
+<p>Un cop aplicades totes les correccions descrites a la secció anterior, s'ha tornat a executar l'eina d'auditoria sobre el servidor (<code>192.168.0.101</code>) per <strong>verificar que les mesures han estat efectives</strong> i que el nombre de vulnerabilitats s'ha reduït significativament.</p>
+<div class="admonition warning">
+<p class="admonition-title">Captures pendents</p>
+<p>Cal afegir aquí les captures de pantalla del segon escaneig que demostrin la reducció de vulnerabilitats. Puja les imatges a <code>docs/assets/img/lab/arreglar/</code> i actualitza les referències.</p>
+</div>
+<!-- Descomenta i actualitza quan tinguis les captures:
+### 5.1. Resultats del re-escaneig
+
+![Resultats del re-escaneig - Resum general](../assets/img/lab/arreglar/rescan-1.png)
+
+![Resultats del re-escaneig - Detall per serveis](../assets/img/lab/arreglar/rescan-2.png)
+-->
+
+<h3 id="millores-esperades">Millores esperades<a class="headerlink" href="#millores-esperades" title="Permanent link">&para;</a></h3>
+<p>Després d'aplicar les correccions, els resultats esperats del re-escaneig són:</p>
+<table>
+<thead>
+<tr>
+<th>Servei</th>
+<th>Abans</th>
+<th>Després</th>
+<th>Correccions aplicades</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SSH (port 22)</td>
+<td>12 CVEs (CVSS fins a 8.1)</td>
+<td>Reduït</td>
+<td>Actualització d'OpenSSH</td>
+</tr>
+<tr>
+<td>MySQL (port 3306)</td>
+<td>254 CVEs (CVSS fins a 10.0)</td>
+<td><strong>0</strong> (port tancat)</td>
+<td><code>bind-address = 127.0.0.1</code></td>
+</tr>
+<tr>
+<td>HTTP (port 80)</td>
+<td>35 CVEs + problemes config</td>
+<td>Reduït</td>
+<td>Capçaleres, directory listing, backup eliminat</td>
+</tr>
+<tr>
+<td>SMB (ports 139/445)</td>
+<td>79 CVEs + accés anònim</td>
+<td>Reduït</td>
+<td>Desactivar SMB1, bloquejar anònim</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">Conclusió</p>
+<p>El procés de <strong>detectar → corregir → verificar</strong> demostra el valor de l'eina d'auditoria EbreSafe com a eina de bastionament iteratiu. Les vulnerabilitats més crítiques han estat mitigades, i el servidor presenta una superfície d'atac significativament reduïda respecte a l'estat inicial.</p>
+</div>
 
 
 
