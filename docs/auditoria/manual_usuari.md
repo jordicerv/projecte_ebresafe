@@ -75,6 +75,8 @@ python telegram_gui.py
 
 La interfície s'obre amb una finestra de 1420x920 píxels amb un disseny fosc professional. A l'esquerra hi ha el **panell de navegació** amb els presets d'escaneig (Xarxa, Ràpid, General, Harvester) i les opcions de Telegram. A la part central hi ha el camp per introduir l'objectiu (TARGET), el botó **Run scan** i les pestanyes de resultats (Summary, Findings, CVEs, Raw).
 
+![Interfície principal de la GUI — Escaneig ràpid amb resultats de ports oberts](../assets/img/auditoria/captura_nova_1.png)
+
 **Elements de la interfície:**
 
 | Element | Funció |
@@ -227,6 +229,14 @@ A la captura del **servidor primari** (abans de correccions) es veu:
 - **380 CVEs** associades als serveis detectats
 - **Checklist del laboratori:** MariaDB exposat (**sí**), SMB shares anònims (**sí**)
 
+#### Pestanya CVEs
+
+Després de l'escaneig general, la pestanya **CVEs** mostra una taula amb totes les vulnerabilitats conegudes detectades, ordenades per puntuació CVSS (de més crític a menys):
+
+![Pestanya CVEs — Taula de vulnerabilitats detectades amb identificador CVE, puntuació CVSS i nombre d'ocurrències](../assets/img/auditoria/captura_nova_4.png)
+
+A la captura es veuen CVEs amb puntuacions de **10.0** (CVE-2020-1472, CVE-2017-7494) fins a **8.5**, afectant serveis als ports 139 i 445. Cada fila mostra l'identificador CVE, la puntuació CVSS i el nombre d'ocurrències.
+
 ![Escaneig general del servidor secundari (192.168.0.101) — 18 troballes, 12 CVEs, sense vulnerabilitats crítiques](../assets/img/auditoria/general2.png)
 
 Al **servidor secundari** (després de correccions) es veu la millora:
@@ -259,6 +269,14 @@ Al **servidor secundari** (després de correccions) es veu la millora:
 3. Opcionalment, introduir la font al camp **Font** (per defecte: `all`)
 4. Clicar **Run scan**
 
+![TheHarvester — Resultats OSINT per al domini insebre.cat](../assets/img/auditoria/captura_nova_5.png)
+
+A la captura es pot veure el resultat d'un escaneig Harvester contra `insebre.cat`:
+
+- **1 email trobat:** cmartorella@edge-security.com
+- **17 hosts/subdominis** trobats: abeltran.insebre.cat, api.insebre.cat, blog.insebre.cat, control.insebre.cat, dev.insebre.cat, ftp.insebre.cat, etc.
+- **3 IPs trobades:** 95.129.255.225, 95.129.255.228, 95.129.255.230
+
 ---
 
 ## Configuració de Telegram {#configuracio-de-telegram}
@@ -273,6 +291,20 @@ Al **servidor secundari** (després de correccions) es veu la millora:
     - Envia qualsevol missatge al bot
     - Visita: `https://api.telegram.org/bot<TOKEN>/getUpdates`
     - Busca `"chat":{"id": XXXXXXX}`
+
+### Configuració des de la GUI
+
+Clicant el botó **Configurar Bot** al panell esquerre s'obre la finestra de configuració:
+
+![Finestra de configuració del bot de Telegram — Camps per al Token i Chat ID amb instruccions integrades](../assets/img/auditoria/captura_nova_3.png)
+
+La finestra inclou:
+
+- **Instruccions pas a pas** (1-8) per obtenir el token i el chat ID
+- Camp **Token del Bot** — On enganxar el token de BotFather
+- Camp **Chat ID** — L'identificador del xat de destinació
+- Botó **Guardar** — Desa la configuració a `telegram_config.json`
+- Botó **Provar Connexió** — Verifica que el bot funciona enviant un missatge de prova
 
 ### Mètodes de configuració
 
@@ -308,6 +340,14 @@ Un cop configurat el bot, es poden enviar els informes d'auditoria directament a
 
 - Un missatge amb el resum de les troballes (CVEs, severitats, recomanacions)
 - El fitxer HTML complet com a document adjunt
+
+![Informe d'auditoria rebut a Telegram — CVEs detectats als ports 139 i 445 amb l'informe HTML adjunt](../assets/img/auditoria/captura_nova_0.png)
+
+A la captura del xat de Telegram es veu:
+
+- Llistat de CVEs detectats amb les seves puntuacions CVSS (fins a 10.0)
+- Recomanacions de seguretat
+- El fitxer `informe_auditoria.html` enviat com a document (23.6 KB)
 
 !!! danger "Seguretat"
     Mai publiqueu el token del bot ni el chat_id en repositoris públics. Afegiu `telegram_config.json` al `.gitignore`.
@@ -358,24 +398,7 @@ A més, la GUI manté un **informe HTML acumulatiu** (`informe_auditoria.html`) 
 
 L'eina s'ha provat en un escenari de laboratori amb alta disponibilitat:
 
-```mermaid
-graph TB
-    subgraph Proxmox
-        subgraph srv-primari ["srv-primari (192.168.0.100)"]
-            A1[SSH] & A2[Apache] & A3[MariaDB] & A4[Keepalived]
-            A5[BIND9] & A6[vsftpd] & A7[Samba]
-        end
-        subgraph srv-secundari ["srv-secundari (192.168.0.101)"]
-            B1[SSH] & B2[Apache] & B3[MariaDB] & B4[Keepalived]
-            B5[BIND9] & B6[vsftpd] & B7[Samba]
-        end
-    end
-    VIP["VIP: 192.168.0.110"]
-    Client["Client / Eina d'Auditoria"]
-    Client -->|Escaneig| VIP
-    VIP -.->|MASTER| srv-primari
-    VIP -.->|BACKUP| srv-secundari
-```
+![Diagrama de l'escenari HA — Dos servidors amb Keepalived, VIP 192.168.0.110 i sincronització de serveis](../assets/img/auditoria/captura_nova_6.png)
 
 L'escenari inclou:
 
