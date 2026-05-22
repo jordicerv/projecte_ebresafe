@@ -98,11 +98,8 @@ graph TB
 
 ## Captures de pantalla — Visió general
 
-!!! note "Captures"
-    Insereix aquí captures generals de l'eina.
+![Preset Xarxa — Descobriment de hosts a la subxarxa local](../assets/img/auditoria/xarxa.png)
 
-<!-- CAPTURA: Vista general de l'eina en execució -->
-<!-- ![Vista general de l'eina](../assets/img/auditoria/captura_nova_0.png) -->
+![Preset Ràpid — Escaneig ràpid de ports al servidor primari](../assets/img/auditoria/rapid1.png)
 
-<!-- CAPTURA: Pantalla principal de la GUI -->
-<!-- ![Pantalla principal GUI](../assets/img/auditoria/captura_nova_1.png) -->
+![Preset General — Auditoria completa del servidor primari amb 380 CVEs i checklist del laboratori](../assets/img/auditoria/general1.png)

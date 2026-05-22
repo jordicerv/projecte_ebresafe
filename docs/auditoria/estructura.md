@@ -401,8 +401,7 @@ La GUI conté pestanyes per a:
 - **Telegram** — Configuració i enviament
 - **Eines** — Estat de les eines instal·lades
 
-<!-- CAPTURA: Interfície GUI amb pestanyes -->
-<!-- ![GUI principal](../assets/img/auditoria/captura_nova_1.png) -->
+![Interfície GUI amb les pestanyes d'escaneig](../assets/img/auditoria/xarxa.png)
 
 ---
 

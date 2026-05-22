@@ -8,7 +8,8 @@
 4. [Guia de cada mòdul](#guia-de-cada-modul)
 5. [Configuració de Telegram](#configuracio-de-telegram)
 6. [Informes generats](#informes-generats)
-7. [Resolució de problemes](#resolucio-de-problemes)
+7. [Escenari del laboratori](#escenari-del-laboratori)
+8. [Resolució de problemes](#resolucio-de-problemes)
 
 ---
 
@@ -50,6 +51,14 @@ docker run -it --rm --network host \
     auditoria_pendrive
 ```
 
+| Paràmetre | Funció |
+|-----------|--------|
+| `-it` | Mode interactiu |
+| `--rm` | Esborra el contenidor en sortir |
+| `--network host` | Utilitza la xarxa real del host (necessari per escanejar hosts reals) |
+| `-v $(pwd)/resultats:/app/dades` | Persistència dels informes al host |
+| `-e DISPLAY` + `-v /tmp/.X11-unix` | Permet obrir la GUI des de Docker |
+
 ---
 
 ## Mode Local (GUI) {#mode-local-gui}
@@ -65,10 +74,6 @@ python telegram_gui.py
 ```
 
 La interfície s'obre amb una finestra de 1420x920 píxels amb un disseny fosc professional. A l'esquerra hi ha el **panell de navegació** amb els presets d'escaneig (Xarxa, Ràpid, General, Harvester) i les opcions de Telegram. A la part central hi ha el camp per introduir l'objectiu (TARGET), el botó **Run scan** i les pestanyes de resultats (Summary, Findings, CVEs, Raw).
-
-![Interfície principal de la GUI — Escaneig ràpid amb resultats de ports oberts](../assets/img/auditoria/captura_nova_1.png)
-
-A la captura es pot veure la GUI amb el preset **Ràpid** seleccionat, l'IP objectiu `192.168.31.81` i els resultats mostrant els ports oberts: 22, 80, 445, 8080.
 
 **Elements de la interfície:**
 
@@ -166,6 +171,10 @@ graph LR
 3. L'eina calcula automàticament la subxarxa /24 de la interfície activa
 4. Es mostra una llista dels hosts trobats amb la seva IP i estat
 
+![Preset Xarxa — Descobriment de 12 hosts actius a la subxarxa 192.168.0.0/24](../assets/img/auditoria/xarxa.png)
+
+A la captura es veu el resultat del descobriment de xarxa: **12 hosts actius** detectats, incloent els servidors del laboratori (192.168.0.100, 192.168.0.101) i la VIP (192.168.0.110).
+
 ---
 
 ### 2. Preset Ràpid — Escaneig ràpid de ports
@@ -179,7 +188,13 @@ graph LR
 3. Clicar **Run scan**
 4. Es mostren els ports oberts trobats
 
-![Resultat d'un escaneig ràpid — Ports oberts detectats: 22, 80, 445, 8080](../assets/img/auditoria/captura_nova_1.png)
+![Escaneig ràpid al servidor primari (192.168.0.100) — Ports oberts: 21, 22, 53, 80, 445, 3306](../assets/img/auditoria/rapid1.png)
+
+A la captura es veu l'escaneig ràpid del **servidor primari** amb 6 ports oberts detectats, incloent el port 3306 (MariaDB) i el 445 (SMB) que més tard es corregiran.
+
+![Escaneig ràpid al servidor secundari (192.168.0.101) — Ports oberts: 21, 22, 53, 80](../assets/img/auditoria/rapid2.png)
+
+Al **servidor secundari** (després de les correccions) es detecten 4 ports oberts. Noteu que el port 3306 ja no apareix (MariaDB restringit a localhost) i el 445 tampoc (SMB securitzat).
 
 ---
 
@@ -191,6 +206,7 @@ graph LR
 - Escaneig UDP dels ports més comuns
 - Scripts NSE (vulners, ftp-anon, smb-enum-shares, etc.)
 - Detecció de CVEs amb puntuació CVSS
+- Checklist automàtic del laboratori
 
 **Com utilitzar-lo:**
 
@@ -202,13 +218,26 @@ graph LR
 !!! warning "Temps d'execució"
     L'escaneig general pot trigar diversos minuts depenent de la xarxa i el nombre de ports oberts.
 
-#### Pestanya CVEs
+![Escaneig general del servidor primari (192.168.0.100) — 32 troballes, 380 CVEs, amb MariaDB exposat i SMB anònim](../assets/img/auditoria/general1.png)
 
-Després de l'escaneig general, la pestanya **CVEs** mostra una taula amb totes les vulnerabilitats conegudes detectades, ordenades per puntuació CVSS (de més crític a menys):
+A la captura del **servidor primari** (abans de correccions) es veu:
 
-![Pestanya CVEs — Taula de vulnerabilitats detectades amb identificador CVE, puntuació CVSS i nombre d'ocurrències](../assets/img/auditoria/captura_nova_4.png)
+- **Ports detectats:** 21/tcp, 22/tcp, 53/tcp, 80/tcp, 139/tcp, 445/tcp, 3306/tcp
+- **32 troballes** de seguretat identificades
+- **380 CVEs** associades als serveis detectats
+- **Checklist del laboratori:** MariaDB exposat (**sí**), SMB shares anònims (**sí**)
 
-A la captura es veuen CVEs amb puntuacions de **10.0** (CVE-2020-1472, CVE-2017-7494) fins a **8.5**, afectant serveis als ports 139 i 445. Cada fila mostra l'identificador CVE, la puntuació CVSS i el nombre d'ocurrències.
+![Escaneig general del servidor secundari (192.168.0.101) — 18 troballes, 12 CVEs, sense vulnerabilitats crítiques](../assets/img/auditoria/general2.png)
+
+Al **servidor secundari** (després de correccions) es veu la millora:
+
+- **Ports detectats:** 21/tcp, 22/tcp, 53/tcp, 80/tcp (sense 139, 445 ni 3306)
+- **18 troballes** (vs 32 anteriors)
+- **12 CVEs** (vs 380 anteriors — una **reducció del 97%**)
+- **Checklist:** Tot en **no** — totes les vulnerabilitats del laboratori han estat corregides
+
+!!! success "Comparativa abans/després"
+    Aquestes dues captures demostren l'eficàcia del procés de bastionament documentat a la secció [Correcció de vulnerabilitats](../laboratori/arreglar_vulnerabilitats.md).
 
 ---
 
@@ -230,14 +259,6 @@ A la captura es veuen CVEs amb puntuacions de **10.0** (CVE-2020-1472, CVE-2017-
 3. Opcionalment, introduir la font al camp **Font** (per defecte: `all`)
 4. Clicar **Run scan**
 
-![TheHarvester — Resultats OSINT per al domini insebre.cat](../assets/img/auditoria/captura_nova_5.png)
-
-A la captura es pot veure el resultat d'un escaneig Harvester contra `insebre.cat`:
-
-- **1 email trobat:** cmartorella@edge-security.com
-- **17 hosts/subdominis** trobats: abeltran.insebre.cat, api.insebre.cat, blog.insebre.cat, control.insebre.cat, dev.insebre.cat, ftp.insebre.cat, etc.
-- **3 IPs trobades:** 95.129.255.225, 95.129.255.228, 95.129.255.230
-
 ---
 
 ## Configuració de Telegram {#configuracio-de-telegram}
@@ -253,27 +274,33 @@ A la captura es pot veure el resultat d'un escaneig Harvester contra `insebre.ca
     - Visita: `https://api.telegram.org/bot<TOKEN>/getUpdates`
     - Busca `"chat":{"id": XXXXXXX}`
 
-### Configuració des de la GUI
-
-Clicant el botó **Configurar Bot** al panell esquerre s'obre la finestra de configuració:
-
-![Finestra de configuració del bot de Telegram — Camps per al Token i Chat ID amb instruccions integrades](../assets/img/auditoria/captura_nova_3.png)
-
-La finestra inclou:
-
-- **Instruccions pas a pas** (1-8) per obtenir el token i el chat ID
-- Camp **Token del Bot** — On enganxar el token de BotFather
-- Camp **Chat ID** — L'identificador del xat de destinació
-- Botó **Guardar** — Desa la configuració a `telegram_config.json`
-- Botó **Provar Connexió** — Verifica que el bot funciona enviant un missatge de prova
-
 ### Mètodes de configuració
 
 | Prioritat | Mètode | Detalls |
 |-----------|--------|---------|
 | 1 (màxima) | **Variables d'entorn** | `TELEGRAM_BOT_TOKEN` i `TELEGRAM_CHAT_ID` |
 | 2 | **Fitxer JSON** | `telegram_config.json` |
-| 3 | **GUI** | Pestanya de configuració dins de l'aplicació |
+| 3 | **GUI** | Botó "Configurar Bot" dins de l'aplicació |
+
+### Fitxer de configuració
+
+```json
+{
+    "token": "EL_TEU_BOT_TOKEN",
+    "chat_id": "EL_TEU_CHAT_ID"
+}
+```
+
+### Amb Docker
+
+Si detecta `telegram_config.json` a la carpeta d'execució, el munta automàticament al contenidor:
+
+```bash
+docker run -it --rm --network host \
+    -v $(pwd)/resultats:/app/dades \
+    -v $(pwd)/telegram_config.json:/app/telegram_config.json \
+    auditoria_pendrive
+```
 
 ### Enviament d'informes per Telegram
 
@@ -281,14 +308,6 @@ Un cop configurat el bot, es poden enviar els informes d'auditoria directament a
 
 - Un missatge amb el resum de les troballes (CVEs, severitats, recomanacions)
 - El fitxer HTML complet com a document adjunt
-
-![Informe d'auditoria rebut a Telegram — CVEs detectats als ports 139 i 445 amb l'informe HTML adjunt](../assets/img/auditoria/captura_nova_0.png)
-
-A la captura del xat de Telegram es veu:
-
-- Llistat de CVEs detectats amb les seves puntuacions CVSS (fins a 10.0)
-- Recomanacions de seguretat
-- El fitxer `informe_auditoria.html` enviat com a document (23.6 KB)
 
 !!! danger "Seguretat"
     Mai publiqueu el token del bot ni el chat_id en repositoris públics. Afegiu `telegram_config.json` al `.gitignore`.
@@ -335,11 +354,28 @@ A més, la GUI manté un **informe HTML acumulatiu** (`informe_auditoria.html`) 
 
 ---
 
-## Escenari del laboratori
+## Escenari del laboratori {#escenari-del-laboratori}
 
 L'eina s'ha provat en un escenari de laboratori amb alta disponibilitat:
 
-![Diagrama de l'escenari HA — Dos servidors (srv-primari i srv-secundari) amb Keepalived, VIP 192.168.0.110 i sincronització de serveis](../assets/img/auditoria/captura_nova_6.png)
+```mermaid
+graph TB
+    subgraph Proxmox
+        subgraph srv-primari ["srv-primari (192.168.0.100)"]
+            A1[SSH] & A2[Apache] & A3[MariaDB] & A4[Keepalived]
+            A5[BIND9] & A6[vsftpd] & A7[Samba]
+        end
+        subgraph srv-secundari ["srv-secundari (192.168.0.101)"]
+            B1[SSH] & B2[Apache] & B3[MariaDB] & B4[Keepalived]
+            B5[BIND9] & B6[vsftpd] & B7[Samba]
+        end
+    end
+    VIP["VIP: 192.168.0.110"]
+    Client["Client / Eina d'Auditoria"]
+    Client -->|Escaneig| VIP
+    VIP -.->|MASTER| srv-primari
+    VIP -.->|BACKUP| srv-secundari
+```
 
 L'escenari inclou:
 
@@ -356,10 +392,10 @@ L'escenari inclou:
 |----------|---------|
 | `python-nmap no instal·lat` | `pip install python-nmap` |
 | `nmap no trobat` | `sudo apt install nmap` |
-| `enum4linux no disponible a apt` | Instal·lar des de GitHub (veure secció d'instal·lació) |
+| `enum4linux no disponible a apt` | Instal·lar des de GitHub: `git clone https://github.com/CiscoCXSecurity/enum4linux.git` + symlink |
 | `theHarvester v0.0.1 a PyPI` | Instal·lar des de GitHub: `pip install git+https://github.com/laramies/theHarvester.git` |
-| `aiodns requires Python >= 3.10` | Actualitzar a `python:3.12-slim` |
+| `aiodns requires Python >= 3.10` | Actualitzar a `python:3.12-slim` al Dockerfile |
 | `nmap no detecta hosts reals dins Docker` | Afegir `--network host` al `docker run` |
 | `La GUI no s'obre dins Docker` | Cal X11 forwarding: `-e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix` |
-| `Error enviant a Telegram` | Verificar token i chat_id. Provar connexió primer |
+| `Error enviant a Telegram` | Verificar token i chat_id. Provar connexió primer amb el botó "Provar Connexió" |
 | `Informes vells s'acumulen` | Utilitzar el botó "Netejar resultats" de la GUI |

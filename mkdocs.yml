@@ -64,12 +64,7 @@ nav:
   - Eina d'Auditoria:
     - Descripció general: auditoria/descripcio.md
     - Estructura i funcionalitats: auditoria/estructura.md
-    - Ús de l'eina: auditoria/us.md
-    - Telegram: auditoria/telegram.md
-    - Docker i USB: auditoria/docker.md
     - Manual d'usuari: auditoria/manual_usuari.md
-    - Problemes i solucions: auditoria/problemes.md
-    - Captures de pantalla: auditoria/captures.md
 
 markdown_extensions:
   - pymdownx.highlight:
