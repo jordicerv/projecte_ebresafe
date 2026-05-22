@@ -1530,6 +1530,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="3. Preset General — Escaneig complet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pestanya-cves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pestanya CVEs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1565,6 +1582,17 @@
     <span class="md-ellipsis">
       
         Crear un bot de Telegram
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracio-des-de-la-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuració des de la GUI
       
     </span>
   </a>
@@ -1905,6 +1933,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="3. Preset General — Escaneig complet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pestanya-cves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pestanya CVEs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1940,6 +1985,17 @@
     <span class="md-ellipsis">
       
         Crear un bot de Telegram
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracio-des-de-la-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuració des de la GUI
       
     </span>
   </a>
@@ -2182,6 +2238,7 @@
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>python<span class="w"> </span>telegram_gui.py
 </code></pre></div>
 <p>La interfície s'obre amb una finestra de 1420x920 píxels amb un disseny fosc professional. A l'esquerra hi ha el <strong>panell de navegació</strong> amb els presets d'escaneig (Xarxa, Ràpid, General, Harvester) i les opcions de Telegram. A la part central hi ha el camp per introduir l'objectiu (TARGET), el botó <strong>Run scan</strong> i les pestanyes de resultats (Summary, Findings, CVEs, Raw).</p>
+<p><img alt="Interfície principal de la GUI — Escaneig ràpid amb resultats de ports oberts" src="../../assets/img/auditoria/captura_nova_1.png" /></p>
 <p><strong>Elements de la interfície:</strong></p>
 <table>
 <thead>
@@ -2335,6 +2392,10 @@
 <li><strong>380 CVEs</strong> associades als serveis detectats</li>
 <li><strong>Checklist del laboratori:</strong> MariaDB exposat (<strong>sí</strong>), SMB shares anònims (<strong>sí</strong>)</li>
 </ul>
+<h4 id="pestanya-cves">Pestanya CVEs<a class="headerlink" href="#pestanya-cves" title="Permanent link">&para;</a></h4>
+<p>Després de l'escaneig general, la pestanya <strong>CVEs</strong> mostra una taula amb totes les vulnerabilitats conegudes detectades, ordenades per puntuació CVSS (de més crític a menys):</p>
+<p><img alt="Pestanya CVEs — Taula de vulnerabilitats detectades amb identificador CVE, puntuació CVSS i nombre d'ocurrències" src="../../assets/img/auditoria/captura_nova_4.png" /></p>
+<p>A la captura es veuen CVEs amb puntuacions de <strong>10.0</strong> (CVE-2020-1472, CVE-2017-7494) fins a <strong>8.5</strong>, afectant serveis als ports 139 i 445. Cada fila mostra l'identificador CVE, la puntuació CVSS i el nombre d'ocurrències.</p>
 <p><img alt="Escaneig general del servidor secundari (192.168.0.101) — 18 troballes, 12 CVEs, sense vulnerabilitats crítiques" src="../../assets/img/auditoria/general2.png" /></p>
 <p>Al <strong>servidor secundari</strong> (després de correccions) es veu la millora:</p>
 <ul>
@@ -2364,6 +2425,13 @@
 <li>Opcionalment, introduir la font al camp <strong>Font</strong> (per defecte: <code>all</code>)</li>
 <li>Clicar <strong>Run scan</strong></li>
 </ol>
+<p><img alt="TheHarvester — Resultats OSINT per al domini insebre.cat" src="../../assets/img/auditoria/captura_nova_5.png" /></p>
+<p>A la captura es pot veure el resultat d'un escaneig Harvester contra <code>insebre.cat</code>:</p>
+<ul>
+<li><strong>1 email trobat:</strong> cmartorella@edge-security.com</li>
+<li><strong>17 hosts/subdominis</strong> trobats: abeltran.insebre.cat, api.insebre.cat, blog.insebre.cat, control.insebre.cat, dev.insebre.cat, ftp.insebre.cat, etc.</li>
+<li><strong>3 IPs trobades:</strong> 95.129.255.225, 95.129.255.228, 95.129.255.230</li>
+</ul>
 <hr />
 <h2 id="configuracio-de-telegram">Configuració de Telegram<a class="headerlink" href="#configuracio-de-telegram" title="Permanent link">&para;</a></h2>
 <h3 id="crear-un-bot-de-telegram">Crear un bot de Telegram<a class="headerlink" href="#crear-un-bot-de-telegram" title="Permanent link">&para;</a></h3>
@@ -2379,6 +2447,17 @@
 </ul>
 </li>
 </ol>
+<h3 id="configuracio-des-de-la-gui">Configuració des de la GUI<a class="headerlink" href="#configuracio-des-de-la-gui" title="Permanent link">&para;</a></h3>
+<p>Clicant el botó <strong>Configurar Bot</strong> al panell esquerre s'obre la finestra de configuració:</p>
+<p><img alt="Finestra de configuració del bot de Telegram — Camps per al Token i Chat ID amb instruccions integrades" src="../../assets/img/auditoria/captura_nova_3.png" /></p>
+<p>La finestra inclou:</p>
+<ul>
+<li><strong>Instruccions pas a pas</strong> (1-8) per obtenir el token i el chat ID</li>
+<li>Camp <strong>Token del Bot</strong> — On enganxar el token de BotFather</li>
+<li>Camp <strong>Chat ID</strong> — L'identificador del xat de destinació</li>
+<li>Botó <strong>Guardar</strong> — Desa la configuració a <code>telegram_config.json</code></li>
+<li>Botó <strong>Provar Connexió</strong> — Verifica que el bot funciona enviant un missatge de prova</li>
+</ul>
 <h3 id="metodes-de-configuracio">Mètodes de configuració<a class="headerlink" href="#metodes-de-configuracio" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -2425,6 +2504,13 @@
 <li>Un missatge amb el resum de les troballes (CVEs, severitats, recomanacions)</li>
 <li>El fitxer HTML complet com a document adjunt</li>
 </ul>
+<p><img alt="Informe d'auditoria rebut a Telegram — CVEs detectats als ports 139 i 445 amb l'informe HTML adjunt" src="../../assets/img/auditoria/captura_nova_0.png" /></p>
+<p>A la captura del xat de Telegram es veu:</p>
+<ul>
+<li>Llistat de CVEs detectats amb les seves puntuacions CVSS (fins a 10.0)</li>
+<li>Recomanacions de seguretat</li>
+<li>El fitxer <code>informe_auditoria.html</code> enviat com a document (23.6 KB)</li>
+</ul>
 <div class="admonition danger">
 <p class="admonition-title">Seguretat</p>
 <p>Mai publiqueu el token del bot ni el chat_id en repositoris públics. Afegiu <code>telegram_config.json</code> al <code>.gitignore</code>.</p>
@@ -2456,22 +2542,7 @@
 <hr />
 <h2 id="escenari-del-laboratori">Escenari del laboratori<a class="headerlink" href="#escenari-del-laboratori" title="Permanent link">&para;</a></h2>
 <p>L'eina s'ha provat en un escenari de laboratori amb alta disponibilitat:</p>
-<pre class="mermaid"><code>graph TB
-    subgraph Proxmox
-        subgraph srv-primari ["srv-primari (192.168.0.100)"]
-            A1[SSH] &amp; A2[Apache] &amp; A3[MariaDB] &amp; A4[Keepalived]
-            A5[BIND9] &amp; A6[vsftpd] &amp; A7[Samba]
-        end
-        subgraph srv-secundari ["srv-secundari (192.168.0.101)"]
-            B1[SSH] &amp; B2[Apache] &amp; B3[MariaDB] &amp; B4[Keepalived]
-            B5[BIND9] &amp; B6[vsftpd] &amp; B7[Samba]
-        end
-    end
-    VIP["VIP: 192.168.0.110"]
-    Client["Client / Eina d'Auditoria"]
-    Client --&gt;|Escaneig| VIP
-    VIP -.-&gt;|MASTER| srv-primari
-    VIP -.-&gt;|BACKUP| srv-secundari</code></pre>
+<p><img alt="Diagrama de l'escenari HA — Dos servidors amb Keepalived, VIP 192.168.0.110 i sincronització de serveis" src="../../assets/img/auditoria/captura_nova_6.png" /></p>
 <p>L'escenari inclou:</p>
 <ul>
 <li><strong>srv-primari</strong> (192.168.0.100) — MASTER amb SSH, Apache, MariaDB, BIND9, vsftpd, Samba i Keepalived</li>
